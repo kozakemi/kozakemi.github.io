@@ -53,8 +53,8 @@ show_headindex_number: false # 侧栏文章目录是否显示章节编号
 
 # 文章
 excerpt: true # 是否显示文章摘要，为 false 则显示全文
-first_image_as_thumbnail: true # 自动取文章第一张图为特色图片
-article_meta: time|categories|words|readingtime # 文章 Meta 信息列表，用竖线分隔开，可选: time 发布时间, edittime 编辑时间, categories 分类, read 阅读量，words 字数, readingtime 预计阅读时间
+first_image_as_thumbnail: false # 自动取文章第一张图为特色图片
+article_meta: time|categories|read|words|readingtime # 文章 Meta 信息列表，用竖线分隔开，可选: time 发布时间, edittime 编辑时间, categories 分类, read 阅读量，words 字数, readingtime 预计阅读时间
 reading_speed_cn: 300 # 每分钟中文阅读字数，用于计算预计阅读时间
 reading_speed_en: 160 # 每分钟英文阅读单词数，用于计算预计阅读时间
 donate_qrcode_url: '' # 赞赏二维码地址，留空则不显示
@@ -138,11 +138,11 @@ waline: # https://waline.js.org/guide/get-started.html
 # 分析
 # 百度统计
 baidu_analytics:
-  enable: false # 是否启用 百度统计
-  id: '' # hm.js? 后的一串字符
+  enable: true # 是否启用 百度统计
+  id: 'dde66cc9df6a98f13b08e1c6ba999728' # hm.js? 后的一串字符
 
 # gtag 谷歌全局网络代码
 # Google Analytics  Universal Analytics(old) 与 Google Analytics（分析）4 均使用 gtag
 gtag:
-  enable: false # 是否启用 gtag
-  id: '' # 请包含 G- 或 UA-
+  enable: true # 是否启用 gtag
+  id: 'G-RP8KMTS8MZ' # 请包含 G- 或 UA-
