@@ -1,10 +1,10 @@
 # 全局
 theme_color: '#fa7298' # 主题色
 show_customize_theme_color_picker: true # 允许用户自定义主题色
-darkmode_autoswitch: false # 自动切换夜间模式，可选: false 默认使用日间, alwayson 默认使用夜间, system 跟随系统, time 随时间切换
+darkmode_autoswitch: time # 自动切换夜间模式，可选: false 默认使用日间, alwayson 默认使用夜间, system 跟随系统, time 随时间切换
 enable_amoled_dark: false # 夜间模式样式，false 为灰黑，true 则为暗黑
 card_radius: 10 # 默认卡片圆角大小
-card_shadow: # 默认卡片阴影大小，可选 small 和 big
+card_shadow: big # 默认卡片阴影大小，可选 small 和 big
 font: sans-serif # 默认字体，可选: sans-serif 无衬线字体, serif 衬线字体
 enable_headroom: false # 滚动时是否自动折叠顶栏
 
@@ -89,7 +89,7 @@ lazyload_effect: fadeIn # 图片显示动画
 lazyload_loading_style: 1 # 图片加载的动画, 可选值 1 ~ 11, none
 
 # Pangu.js
-enable_pangu: false # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
+enable_pangu: true # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
 
 # 其他
 pjax_disabled: false # 是否禁用 Pjax
@@ -100,7 +100,7 @@ enable_mobile_scale: false # 是否允许手机端缩放页面
 footer_html: '' # 页脚 HTML
 
 # 数学公式
-math_render: '' # 数学公式渲染方案，留空则不渲染，可选值: mathjax3, mathjax2, katex
+math_render: 'mathjax3' # 数学公式渲染方案，留空则不渲染，可选值: mathjax3, mathjax2, katex
 mathjax_cdn_url: //cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js # Mathjax 3 CDN 地址
 argon_mathjax_v2_cdn_url: //cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS_HTML # Mathjax 2 CDN 地址
 katex_cdn_url: //cdn.jsdelivr.net/npm/katex@0.11.1/dist/ # Katex CDN 地址
@@ -132,8 +132,8 @@ giscus: # https://giscus.app/zh-CN
   theme: 'light'
   lang: 'zh-CN'
 waline: # https://waline.js.org/guide/get-started.html
-  enable: false # 是否启用 Waline 评论系统
-  server_url: '' 
+  enable: true # 是否启用 Waline 评论系统
+  server_url: 'https://hexo-waline-jynl57ls1-kozakemi1.vercel.app/' 
 
 # 分析
 # 百度统计
