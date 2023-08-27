@@ -1,7 +1,7 @@
 # 全局
 theme_color: '#fa7298' # 主题色
 show_customize_theme_color_picker: true # 允许用户自定义主题色
-darkmode_autoswitch: time # 自动切换夜间模式，可选: false 默认使用日间, alwayson 默认使用夜间, system 跟随系统, time 随时间切换
+darkmode_autoswitch: false # 自动切换夜间模式，可选: false 默认使用日间, alwayson 默认使用夜间, system 跟随系统, time 随时间切换
 enable_amoled_dark: false # 夜间模式样式，false 为灰黑，true 则为暗黑
 card_radius: 10 # 默认卡片圆角大小
 card_shadow: big # 默认卡片阴影大小，可选 small 和 big
@@ -21,7 +21,7 @@ toolbar_menu: # 顶栏菜单，支持二级菜单
 # Banner
 banner_title: '樱落星河' # Banner 标题，留空则跟随博客标题
 enable_banner_title_typing_effect: true # 是否启用 Banner 打字效果
-theme.banner_typing_effect_interval: 300 # Banner 打字间隔时长，单位 ms/字
+theme.banner_typing_effect_interval: 800 # Banner 打字间隔时长，单位 ms/字
 banner_subtitle: '分享大学学习笔记与美好瞬间' # Banner 子标题，留空则不显示
 banner_background_url: '/assets/img/banner.jpg' # Banner 背景图，留空则不显示
 banner_background_hide_shapes: false # 是否隐藏 Banner 背景圆形
@@ -54,7 +54,7 @@ show_headindex_number: false # 侧栏文章目录是否显示章节编号
 # 文章
 excerpt: true # 是否显示文章摘要，为 false 则显示全文
 first_image_as_thumbnail: false # 自动取文章第一张图为特色图片
-article_meta: time|categories|read|words|readingtime # 文章 Meta 信息列表，用竖线分隔开，可选: time 发布时间, edittime 编辑时间, categories 分类, read 阅读量，words 字数, readingtime 预计阅读时间
+article_meta: time|categories|words|readingtime # 文章 Meta 信息列表，用竖线分隔开，可选: time 发布时间, edittime 编辑时间, categories 分类, read 阅读量，words 字数, readingtime 预计阅读时间
 reading_speed_cn: 300 # 每分钟中文阅读字数，用于计算预计阅读时间
 reading_speed_en: 160 # 每分钟英文阅读单词数，用于计算预计阅读时间
 donate_qrcode_url: '' # 赞赏二维码地址，留空则不显示
@@ -97,7 +97,32 @@ enable_into_article_animation: false # 是否启用进入文章动画
 enable_mobile_scale: false # 是否允许手机端缩放页面
 
 # 页脚
-footer_html: '' # 页脚 HTML
+footer_html: '<footer>
+  <div style="display: flex; justify-content: center;">
+    本博客已继承自 <a href="https://www.kozakemi.top" style="color: #FF0000;">www.kozakemi.top</a> 并运行：[
+    <span style="color: #FF0000;" id="days"></span>天
+    <span style="color: #FF0000;" id="hours"></span>小时
+    <span style="color: #FF0000;" id="minutes"></span>分钟
+    <span style="color: #FF0000;" id="seconds"></span>秒]
+  </div>
+</footer>
+<script>
+  function updateTimer() {
+    var startDate = new Date("2023-08-24T15:58:25Z");
+    var now = new Date();
+    var diff = now.getTime() - startDate.getTime();
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+  }
+  setInterval(updateTimer, 1000);
+</script>'
+
 
 # 数学公式
 math_render: 'mathjax3' # 数学公式渲染方案，留空则不渲染，可选值: mathjax3, mathjax2, katex
