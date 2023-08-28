@@ -16,7 +16,7 @@ toolbar_menu: # 顶栏菜单，支持二级菜单
   首页: /
   归档时间轴: /archives
   隐私政策: /privacy
-  友情链接: /link_exchange
+  友情链接: /link-exchange
 
 # Banner
 banner_title: '樱落星河' # Banner 标题，留空则跟随博客标题
