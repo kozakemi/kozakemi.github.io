@@ -2,8 +2,7 @@
 title: Linux 用户管理与权限管理
 date: 2023-08-30 22:16:15
 tags:
-
-
+typora-copy-images-to: {{ title }}
 ---
 
 ## 用户管理
