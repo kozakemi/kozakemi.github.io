@@ -228,4 +228,3 @@ sudo chown username filename
 sudo chgrp username filename 
 ```
 
-![image-20230830224016448](Linux-用户管理与权限管理/image-20230830224016448.png)
