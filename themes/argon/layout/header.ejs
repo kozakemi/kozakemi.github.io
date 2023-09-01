@@ -56,8 +56,8 @@
 	<%- js('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js') %>
 
 	<% if (theme.gitalk.enable) { %>
-		<%- css('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css') %>
-		<%- js('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js') %>
+		<%- css('//unpkg.zhimg.com/gitalk@1/dist/gitalk.css') %>
+		<%- js('//unpkg.zhimg.com/gitalk@1/dist/gitalk.min.js') %>
 	<% } %>
 
 	<script>
@@ -484,7 +484,7 @@
 <div id="content" class="site-content">
 
 <% if (theme.waline.enable) { %>
-	<script src="https://cdn.jsdelivr.net/npm/@waline/client"></script>
+	<script src="https://unpkg.zhimg.com/@waline/client"></script>
 <% } %>
 
 <% if (theme.baidu_analytics.enable) { %>

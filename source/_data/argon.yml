@@ -89,10 +89,10 @@ lazyload_effect: fadeIn # 图片显示动画
 lazyload_loading_style: 1 # 图片加载的动画, 可选值 1 ~ 11, none
 
 # Pangu.js
-enable_pangu: true # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
+enable_pangu: false # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
 
 # 其他
-pjax_disabled: false # 是否禁用 Pjax
+pjax_disabled: true # 是否禁用 Pjax
 enable_into_article_animation: false # 是否启用进入文章动画
 enable_mobile_scale: false # 是否允许手机端缩放页面
 
@@ -126,9 +126,9 @@ footer_html: '<footer>
 
 # 数学公式
 math_render: 'mathjax3' # 数学公式渲染方案，留空则不渲染，可选值: mathjax3, mathjax2, katex
-mathjax_cdn_url: //cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js # Mathjax 3 CDN 地址
-argon_mathjax_v2_cdn_url: //cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS_HTML # Mathjax 2 CDN 地址
-katex_cdn_url: //cdn.jsdelivr.net/npm/katex@0.11.1/dist/ # Katex CDN 地址
+mathjax_cdn_url: //unpkg.zhimg.com/mathjax@3/es5/tex-chtml-full.js # Mathjax 3 CDN 地址
+argon_mathjax_v2_cdn_url: //unpkg.zhimg.com/mathjax@2.7.5/MathJax.js?config=TeX-AMS_HTML # Mathjax 2 CDN 地址
+katex_cdn_url: //unpkg.zhimg.com/katex@0.11.1/dist/ # Katex CDN 地址
 
 # 代码高亮
 enable_code_highlight: true # 是否启用 Highlight.js 代码高亮
