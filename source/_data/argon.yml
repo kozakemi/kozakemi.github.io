@@ -90,7 +90,7 @@ lazyload_effect: fadeIn # 图片显示动画
 lazyload_loading_style: 1 # 图片加载的动画, 可选值 1 ~ 11, none
 
 # Pangu.js
-enable_pangu: false # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
+enable_pangu: true # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
 
 # 其他
 pjax_disabled: true # 是否禁用 Pjax
@@ -106,23 +106,29 @@ footer_html: '<footer>
     <span style="color: #FF0000;" id="minutes"></span>分钟
     <span style="color: #FF0000;" id="seconds"></span>秒]
   </div>
+  
+  <script>
+    function updateTimer() {
+      var startDate = new Date("2023-08-24T15:58:25Z");
+      var now = new Date();
+      var diff = now.getTime() - startDate.getTime();
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+    setInterval(updateTimer, 1000);
+  </script>
+  
+  <div style="text-align: center;">
+    由<a href="https://docs.gitlab.com/ee/user/project/pages/" style="color: #FF0000;">GitLab Pages</a>与<a href="https://hexo.io/zh-cn/index.html" style="color: #FF0000;">Hexo</a>驱动
+  </div>
 </footer>
-<script>
-  function updateTimer() {
-    var startDate = new Date("2023-08-24T15:58:25Z");
-    var now = new Date();
-    var diff = now.getTime() - startDate.getTime();
-    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-  }
-  setInterval(updateTimer, 1000);
-</script>'
+'
 
 
 # 数学公式
