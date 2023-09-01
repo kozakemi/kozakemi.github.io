@@ -20,7 +20,7 @@ toolbar_menu: # 顶栏菜单，支持二级菜单
 
 # Banner
 banner_title: '樱落星河' # Banner 标题，留空则跟随博客标题
-enable_banner_title_typing_effect: true # 是否启用 Banner 打字效果
+enable_banner_title_typing_effect: false # 是否启用 Banner 打字效果
 theme.banner_typing_effect_interval: 800 # Banner 打字间隔时长，单位 ms/字
 banner_subtitle: '分享大学学习笔记与美好瞬间' # Banner 子标题，留空则不显示
 banner_background_url: '/assets/img/banner.jpg' # Banner 背景图，留空则不显示
@@ -146,7 +146,7 @@ custom_html_head: '' # 页头脚本，HTML
 custom_html_foot: '' # 页尾脚本，HTML
 
 # 评论
-gitalk:
+gitalk:    #header.ejs
   enable: false # 是否启用 Gitalk 评论系统
   owner: ''
   repo: ''
