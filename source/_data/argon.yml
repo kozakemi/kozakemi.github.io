@@ -157,17 +157,17 @@ giscus: # https://giscus.app/zh-CN
   theme: 'light'
   lang: 'zh-CN'
 waline: # https://waline.js.org/guide/get-started.html
-  enable: false # 是否启用 Waline 评论系统
+  enable: true # 是否启用 Waline 评论系统
   server_url: 'https://hexo-waline-jynl57ls1-kozakemi1.vercel.app/' 
 
 # 分析
 # 百度统计
 baidu_analytics:
-  enable: false # 是否启用 百度统计
+  enable: true # 是否启用 百度统计
   id: 'dde66cc9df6a98f13b08e1c6ba999728' # hm.js? 后的一串字符
 
 # gtag 谷歌全局网络代码
 # Google Analytics  Universal Analytics(old) 与 Google Analytics（分析）4 均使用 gtag
 gtag:
-  enable: false # 是否启用 gtag
+  enable: true # 是否启用 gtag
   id: 'G-RP8KMTS8MZ' # 请包含 G- 或 UA-
