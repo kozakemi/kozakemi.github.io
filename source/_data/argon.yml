@@ -125,7 +125,7 @@ footer_html: '<footer>
   </script>
   
   <div style="text-align: center;">
-    由<a href="https://docs.gitlab.com/ee/user/project/pages/" style="color: #FF0000;">GitLab Pages</a>与<a href="https://hexo.io/zh-cn/index.html" style="color: #FF0000;">Hexo</a>驱动
+    由<a href="https://docs.gitlab.com/ee/user/project/pages/" style="color: #FF0000;">GitLab Pages</a>与<a href="https://hexo.io/zh-cn/index.html" style="color: #FF0000;">Hexo</a>强力驱动
   </div>
 </footer>
 '
