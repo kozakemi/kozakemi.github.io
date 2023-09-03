@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 樱落星河-分享大学学习笔记与美好瞬间
-subtitle:
-description:
+title: 樱落星河
+subtitle: 分享大学学习笔记与美好瞬间
+description: 某信电院学生的博客，分享MCU（TI、C51、Arduino）、计算机语言（C/C++、Python）、日语等学习笔记、大学常用软件等笔记教程
 author: Kozakemi
 language:
 timezone:
