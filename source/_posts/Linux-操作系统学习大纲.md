@@ -1,18 +1,18 @@
 ---
-title: linux操作系统学习大纲
+title: Linux 操作系统学习大纲
 date: 2023-08-30 21:09:54
 tags:
 ---
 
 ## 入门
 
-Linux 发行版/商业版
+[Linux 发行版/商业版](https://kozakemi.gitlab.io/2023/08/30/Linux-%E5%8F%91%E8%A1%8C%E7%89%88-%E5%95%86%E4%B8%9A%E7%89%88/)
 
 安装Linux操作系统
 
 命令行基础
 
-软件包管理和安装
+[软件包管理和安装](https://kozakemi.gitlab.io/2023/08/30/ubuntu-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8-apt/)
 
 Linux文件系统和目录结构
 

@@ -100,11 +100,11 @@ enable_mobile_scale: true # 是否允许手机端缩放页面
 # 页脚
 footer_html: '<footer>
   <div style="display: flex; justify-content: center;">
-    本博客已继承自 <a href="https://www.kozakemi.top" style="color: #FF0000;">www.kozakemi.top</a> 并运行：[
+    <p>本博客已继承自 <a href="https://www.kozakemi.top" style="color: #FF0000;">www.kozakemi.top</a> 并运行：[
     <span style="color: #FF0000;" id="days"></span>天
     <span style="color: #FF0000;" id="hours"></span>小时
     <span style="color: #FF0000;" id="minutes"></span>分钟
-    <span style="color: #FF0000;" id="seconds"></span>秒]
+    <span style="color: #FF0000;" id="seconds"></span>秒]</p>
   </div>
   
   <script>
@@ -125,7 +125,7 @@ footer_html: '<footer>
   </script>
   
   <div style="text-align: center;">
-    由<a href="https://docs.gitlab.com/ee/user/project/pages/" style="color: #FF0000;">GitLab Pages</a>与<a href="https://hexo.io/zh-cn/index.html" style="color: #FF0000;">Hexo</a>强力驱动
+    <p>由<a href="https://docs.gitlab.com/ee/user/project/pages/" style="color: #FF0000;">GitLab Pages</a>与<a href="https://hexo.io/zh-cn/index.html" style="color: #FF0000;">Hexo</a>强力驱动</p>
   </div>
 </footer>
 '

@@ -92,7 +92,7 @@ sitemap:
 hexo_submit_urls_to_search_engine:
   # link:https://segmentfault.com/a/1190000023219230?sort=votes
   # 提交最新的 n 个链接
-  count: 5
+  count: 20
   # 提交修改时间在 n 秒内的链接，单位秒。例如：
   # 有两个文件 a.txt 和 b.txt，分别对应 https://yoursite.com/a.txt 和 https://yoursite.com/b.txt
   # 其更新时间距当前分别为 800s 和 1000s（period 字段设为 900）

@@ -1,5 +1,5 @@
 ---
-title: linux 归档与压缩
+title: Linux 归档与压缩
 date: 2023-08-30 22:13:19
 tags:
 ---

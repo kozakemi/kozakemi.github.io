@@ -1,5 +1,5 @@
 ---
-title: linux 三大帮助命令及其用法
+title: Linux 三大帮助命令及其用法
 date: 2023-08-30 21:55:12
 tags:
 ---
