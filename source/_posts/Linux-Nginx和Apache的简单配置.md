@@ -1,7 +1,7 @@
 ---
 title: Linux Nginx和Apache的简单配置
 date: 2023-09-01 14:44:14
-tags:
+tags: 实验
 typora-copy-images-to: Linux-Nginx和Apache的简单配置
 ---
 

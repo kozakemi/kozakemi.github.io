@@ -83,6 +83,13 @@ sitemap:
   prettyURLs:
     trailingSlash: false
 
+
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  
 hexo_submit_urls_to_search_engine:
   # link:https://segmentfault.com/a/1190000023219230?sort=votes
   # 提交最新的 n 个链接
@@ -116,8 +123,3 @@ hexo_submit_urls_to_search_engine:
   google_host: https://kozakemi.gitlab.io
   # 存放 google key 的 json 文件，放于网站根目录
   google_key_file: google_key.json
-
-search:
-  path: search.xml
-  field: post
-  content: true
