@@ -4,9 +4,7 @@ date: 2023-09-08 23:15:06
 tags:
 ---
 
-## GPIO相关函数介绍
-
-### 外设时钟控制
+## 外设时钟控制
 
 ```c
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
@@ -39,17 +37,16 @@ void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)
 >
 > 参数2：启用或禁用
 
-### GPIO初始化
+## GPIO初始化
 
 ```c
 GPIO_InitTypeDef GPIO_InitStructure;
 GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;
 GPIO_InitStructure.GPIO_Pin=GPIO_Pin_0;
 GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
-
 GPIO_Init(GPIOA,&GPIO_InitStructure);
 ```
-#### GPIO_Init( )
+### GPIO_Init( )
 
 ```c
 /**
@@ -69,7 +66,7 @@ void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
 >
 > 参数2：结构体类型GPIO_InitTypeDef的地址
 
-#### 结构体 GPIO_InitTypeDef
+### 结构体 GPIO_InitTypeDef
 
 用于初始化GPIO
 
@@ -155,7 +152,6 @@ typedef struct
 >
 > 由于点灯使用推挽输出，故 GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP；
 >
-> 
 
 > GPIO_Speed 查询 GPIOSpeed_TypeDef
 >
@@ -170,15 +166,27 @@ typedef struct
 >
 > 平常使用50mhz即可，即GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
 
-### GPIO设置电平
+## GPIO输出
+
+### 初始化
+
+1、设置时钟
+
+2、初始化io
+
+3、实现代码
 
 ```c
-GPIO_SetBits(GPIOA,GPIO_Pin_0);
-GPIO_ResetBits(GPIOA,GPIO_Pin_0);
-GPIO_WriteBit(GPIOA,GPIO_Pin_0,Bit_RESET );
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
+
+GPIO_InitTypeDef GPIO_InitStructure;
+GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;
+GPIO_InitStructure.GPIO_Pin=GPIO_Pin_0;
+GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
+GPIO_Init(GPIOA,&GPIO_InitStructure);
 ```
 
-#### GPIO_SetBits( ) 设置高电平
+### GPIO_SetBits( ) 设置高电平
 
 ```c
 /**
@@ -195,7 +203,7 @@ void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 >
 > 参数2：GPIO_Pin_x (0..15)  例如A0 为GPIO_Pin_0
 
-#### GPIO_ResetBits( )设置低电平
+### GPIO_ResetBits( )设置低电平
 
 ```c
 /**
@@ -212,7 +220,7 @@ void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 >
 > 参数2：GPIO_Pin_x (0..15)  例如A0 为GPIO_Pin_0
 
-#### GPIO_WriteBit( ) 设置指定端口的值
+### GPIO_WriteBit( ) 设置单个端口的值
 
 ```c
 /**
@@ -235,11 +243,40 @@ void GPIO_WriteBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, BitAction BitVal)
 >
 > 参数3：Bit_RESET 清除端口值(清零)   Bit_SET设置端口值(置1)
 
-#### GPIO_Write( ) 同时操作16个IO
+### GPIO_Write( ) 设定GPIOx的端口值
 
-## 应用
+```C
+/**
+  * @brief  Writes data to the specified GPIO data port.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @param  PortVal: specifies the value to be written to the port output data register.
+  * @retval None
+  */
+void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal)
+```
 
-### 灯闪烁
+> 参数1：GPIOx (A..G)   例如A0 为GPIOA
+>
+> 参数2：ODR寄存器值 16位二进制，但是c语言需要将其转为16进制
+>
+> ​			举例 设置A0为高   0000 0000 0000 0001
+>
+> ​									   0x0        0        0        1
+>
+> ​										0x0001;
+
+### 总览
+
+```c
+GPIO_SetBits(GPIOA,GPIO_Pin_0);
+GPIO_ResetBits(GPIOA,GPIO_Pin_0);
+GPIO_WriteBit(GPIOA,GPIO_Pin_0,Bit_RESET );
+GPIO_Write(GPIOA,0x0001);
+```
+
+### 应用
+
+#### 灯闪烁
 
 点亮led等待一段时间，然后再熄灭，循环
 
@@ -271,6 +308,207 @@ int main(void)
 	}
 }
 ```
+
+#### 流水灯
+
+```c
+#include "stm32f10x.h"                  // Device header
+#include "Delay.h"
+int main(void)
+{
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);//配置时钟
+	
+	GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_All;
+	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA,&GPIO_InitStructure);
+	
+	uint16_t mask = 0x0001;
+	while (1) {
+		for (int i = 0; i < 8; i++) {
+			GPIO_Write(GPIOA, ~mask);
+			Delay_s(1);
+			mask = mask << 1;
+		}
+		mask = 0x0001;  // 重置 mask，重新开始循环
+	}
+}
+
+```
+
+
+
+## GPIO 输入
+
+### 初始化
+
+1、设置时钟
+
+2、初始化io
+
+3、实现代码
+
+```c
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);//配置时钟
+
+GPIO_InitTypeDef GPIO_InitStructure2;
+GPIO_InitStructure2.GPIO_Mode=GPIO_Mode_IPU;
+GPIO_InitStructure2.GPIO_Pin=GPIO_Pin_10;
+GPIO_Init(GPIOA,&GPIO_InitStructure2);
+
+
+```
+
+观察发现，相比于GPIO输出仅变两处代码
+
+> 1、删除GPIO_Speed，对于输入模式GPIO_Speed无意义
+>
+> 2、设置GPIO_Mode为GPIO_Mode_IPU
+
+
+
+### GPIO_ReadInputDataBit( ) 读取单个端口的值
+
+```c
+/**
+  * @brief  Reads the specified input port pin.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @param  GPIO_Pin:  specifies the port bit to read.
+  *   This parameter can be GPIO_Pin_x where x can be (0..15).
+  * @retval The input port pin value.
+  */
+uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+```
+
+> 入参：GPIOx、GPIO—Pin
+>
+> 出参：value 1/0
+
+
+
+### GPIO_ReadInputData( ) 读取端口GPIOx的值
+
+```c
+/**
+  * @brief  Reads the specified GPIO input data port.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @retval GPIO input data port value.
+  */
+uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)
+```
+
+> 入参：GPIOx
+>
+> 出参：16位二进制 例如0x0001
+
+
+
+### GPIO_ReadOutputDataBit( ) 查询设定的单个端口的值
+
+```c
+/**
+  * @brief  Reads the specified output data port bit.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @param  GPIO_Pin:  specifies the port bit to read.
+  *   This parameter can be GPIO_Pin_x where x can be (0..15).
+  * @retval The output port pin value.
+  */
+uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+```
+
+> 入参：GPIOx、GPIO—Pin
+>
+> 出参：value 1/0
+
+
+
+### GPIO_ReadOutputData( )查询设定的GPIOx的值
+
+```c
+/**
+  * @brief  Reads the specified GPIO output data port.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @retval GPIO output data port value.
+  */
+uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx)
+```
+
+> 入参：GPIOx
+>
+> 出参：16位二进制 例如0x0001
+
+### 总览
+
+```c
+xxx=GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_10);
+xxx=GPIO_ReadOutputDataBit(GPIOB);
+xxx=GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_10);
+xxx=GPIO_ReadOutputData(GPIOB);
+```
+
+### 应用
+
+#### 按键改变灯光状态
+
+```c
+#include "stm32f10x.h"                  // Device header
+#include "Delay.h"
+int main(void)
+{
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);//配置时钟
+	
+	GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_0;
+	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA,&GPIO_InitStructure);
+	
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);//配置时钟
+	GPIO_InitTypeDef GPIO_InitStructure2;
+	GPIO_InitStructure2.GPIO_Mode=GPIO_Mode_IPU;
+	GPIO_InitStructure2.GPIO_Pin=GPIO_Pin_10;
+	GPIO_InitStructure2.GPIO_Speed=GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB,&GPIO_InitStructure2);
+	
+	int value=0;
+	
+	while(1){
+		value=GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_0);
+		if (GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_10)==0){
+			Delay_ms(20);
+			while(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_10)==0){
+				Delay_ms(20);
+				if(value){
+					GPIO_WriteBit(GPIOA,GPIO_Pin_0,(BitAction)0);
+				}else{
+					GPIO_WriteBit(GPIOA,GPIO_Pin_0,(BitAction)1);
+				}
+			}
+		}
+		
+	}
+}
+
+```
+
+> 不过需要注意的是
+>
+> ```c
+> GPIO_WriteBit(GPIOA,GPIO_Pin_0,(BitAction)(~value));
+> ```
+>
+> 这样写，不能正常工作
+> 故使用以下语句代替
+>
+> ```C
+> if(value){
+>     GPIO_WriteBit(GPIOA,GPIO_Pin_0,(BitAction)0);
+> }else{
+>     GPIO_WriteBit(GPIOA,GPIO_Pin_0,(BitAction)1);
+> }
+> ```
+> 感觉逻辑是对的，但是不知为何不工作
 
 ## 补充内容
 
