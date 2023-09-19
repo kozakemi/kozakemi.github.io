@@ -1,5 +1,6 @@
 ---
 title: STM32 GPIO操作
+abbrlink: fea5aa33
 date: 2023-09-08 23:15:06
 tags:
 ---

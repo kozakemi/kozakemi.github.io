@@ -7,6 +7,7 @@ id: '228'
 categories:
   - - MCU
   - - TI
+abbrlink: 669d6f9d
 date: 2021-07-13 19:46:37
 ---
 

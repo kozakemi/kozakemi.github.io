@@ -9,6 +9,7 @@ categories:
   - - LINUX
   - - openSUSE
   - - system
+abbrlink: 1792a0e4
 date: 2021-09-13 23:31:14
 ---
 

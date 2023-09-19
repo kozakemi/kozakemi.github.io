@@ -7,6 +7,7 @@ id: '465'
 categories:
   - - MCU
   - - TI
+abbrlink: abcf8255
 date: 2021-09-25 20:49:33
 ---
 

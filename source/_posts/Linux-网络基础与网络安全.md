@@ -1,5 +1,6 @@
 ---
 title: Linux 网络基础与网络安全
+abbrlink: 5c399734
 date: 2023-09-04 23:05:07
 tags:
 ---

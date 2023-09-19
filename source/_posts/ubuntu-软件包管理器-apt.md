@@ -1,5 +1,6 @@
 ---
 title: ubuntu 软件包管理器 apt
+abbrlink: 78ff1fb3
 date: 2023-08-30 21:50:19
 tags:
 ---

@@ -1,8 +1,9 @@
 ---
 title: Typora借助PicGo使用阿里云OSS实现图床
+typora-copy-images-to: Typora借助PicGo使用阿里云OSS实现图床
+abbrlink: f7b75cc
 date: 2023-08-31 18:41:47
 tags:
-typora-copy-images-to: Typora借助PicGo使用阿里云OSS实现图床
 ---
 
 ## 参考链接：

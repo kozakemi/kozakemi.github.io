@@ -1,5 +1,6 @@
 ---
 title: Linux 文件与文件夹与目录管理
+abbrlink: dec2fff5
 date: 2023-08-30 21:57:51
 tags:
 ---

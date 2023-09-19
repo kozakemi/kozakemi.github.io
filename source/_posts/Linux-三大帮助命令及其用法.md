@@ -1,5 +1,6 @@
 ---
 title: Linux 三大帮助命令及其用法
+abbrlink: b83de72e
 date: 2023-08-30 21:55:12
 tags:
 ---

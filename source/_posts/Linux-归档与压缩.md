@@ -1,5 +1,6 @@
 ---
 title: Linux 归档与压缩
+abbrlink: 90fa8abe
 date: 2023-08-30 22:13:19
 tags:
 ---

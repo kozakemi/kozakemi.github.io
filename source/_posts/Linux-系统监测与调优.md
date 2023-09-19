@@ -1,5 +1,6 @@
 ---
 title: Linux 系统监测与调优
+abbrlink: 1206971b
 date: 2023-09-04 22:49:11
 tags:
 ---

@@ -1,8 +1,9 @@
 ---
 title: Linux Nginx和Apache的简单配置
-date: 2023-09-01 14:44:14
 tags: 实验
 typora-copy-images-to: Linux-Nginx和Apache的简单配置
+abbrlink: '46435868'
+date: 2023-09-01 14:44:14
 ---
 
 apache2使用8080端口，使用Nginx将其反代到80端口

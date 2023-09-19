@@ -1,8 +1,9 @@
 ---
 title: C/C++知识温习与补充
+typora-copy-images-to: C-C-知识温习与补充
+abbrlink: e308ad77
 date: 2023-09-06 22:15:21
 tags:
-typora-copy-images-to: C-C-知识温习与补充
 ---
 
 
