@@ -164,7 +164,7 @@ giscus: # https://giscus.app/zh-CN
   theme: 'light'
   lang: 'zh-CN'
 waline: # https://waline.js.org/guide/get-started.html
-  enable: true # 是否启用 Waline 评论系统
+  enable: false # 是否启用 Waline 评论系统
   server_url: 'https://hexo-waline-jynl57ls1-kozakemi1.vercel.app/' 
 
 # 分析
