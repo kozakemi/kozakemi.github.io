@@ -462,7 +462,7 @@ void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState);//系�
 void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource);
 ```
 
-#### 配置中断函数
+### 配置中断函数
 
 查看**startup_stm32f10x_md.s**，查找**IRQHandler**字段，即为函数名PinB14为**EXTI15_10**,故对应**EXTI15_10_IRQHandler**
 
