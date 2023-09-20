@@ -100,6 +100,7 @@ enable_mobile_scale: true # 是否允许手机端缩放页面
 # 页脚
 footer_html: '<footer>
   <div style="display: flex; justify-content: center;">
+    <p>Copyright © 2023 Kozakemi</p>
     <p>本博客已继承自 <a href="https://www.kozakemi.top" style="color: #FF0000;">www.kozakemi.top</a> 并运行：[
     <span style="color: #FF0000;" id="days"></span>天
     <span style="color: #FF0000;" id="hours"></span>小时
