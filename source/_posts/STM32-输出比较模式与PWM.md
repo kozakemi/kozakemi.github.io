@@ -1,5 +1,5 @@
 ---
-title: STM32 TIM输出比较模式与PWM
+title: STM32 TIM输出比较模式与PWM输出
 typora-copy-images-to: STM32-输出比较模式与PWM
 abbrlink: 96746b21
 date: 2023-09-20 23:20:01
