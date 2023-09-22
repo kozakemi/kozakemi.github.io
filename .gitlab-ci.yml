@@ -21,7 +21,3 @@ pages:
     - public
   only:
   - master
-stages:
-- test
-include:
-- template: Security/SAST.gitlab-ci.yml
