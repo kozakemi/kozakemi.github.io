@@ -315,6 +315,28 @@ void TIM_SetCompare1(TIM_TypeDef* TIMx, uint16_t Compare1)
 TIM_SetCompare1(TIM2, 100);//修改通道1的CCR值
 ```
 
+## 如何修改频率
+
+```c
+/**
+  * @brief  Configures the TIMx Prescaler.
+  * @param  TIMx: where x can be 1 to 17 to select the TIM peripheral.
+  * @param  Prescaler: specifies the Prescaler Register value
+  * @param  TIM_PSCReloadMode: specifies the TIM Prescaler Reload mode
+  *   This parameter can be one of the following values:
+  *     @arg TIM_PSCReloadMode_Update: The Prescaler is loaded at the update event.
+  *     @arg TIM_PSCReloadMode_Immediate: The Prescaler is loaded immediately.
+  * @retval None
+  */
+void TIM_PrescalerConfig(TIM_TypeDef* TIMx, uint16_t Prescaler, uint16_t TIM_PSCReloadMode)
+```
+
+> 参数1、TIMx
+>
+> 参数2、Prescaler为PSC的值
+>
+> 参数3、TIM_PSCReloadMode_Update在更新事件后加载，TIM_PSCReloadMode_Immediate为立即加载
+
 ## 引脚占用，如何实现引脚重映射？
 
 此时需要AFIO的功能
