@@ -1,5 +1,5 @@
 ---
-title: STM32 输出比较模式与PWM
+title: STM32 TIM输出比较模式与PWM
 typora-copy-images-to: STM32-输出比较模式与PWM
 abbrlink: 96746b21
 date: 2023-09-20 23:20:01
@@ -19,6 +19,8 @@ tags:
 ![image-20230920222440400](STM32-输出比较模式与PWM/image-20230920222440400.png)
 
 ![image-20230920222857886](STM32-输出比较模式与PWM/image-20230920222857886.png)
+
+上图 ARR=99 CCR=29
 
 ## 输出比较模块配置函数
 
@@ -267,8 +269,8 @@ TIM_InternalClockConfig(TIM2);
 TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-TIM_TimeBaseInitStructure.TIM_Period = 100 - 1;		//ARR
-TIM_TimeBaseInitStructure.TIM_Prescaler = 720 - 1;		//PSC
+TIM_TimeBaseInitStructure.TIM_Period = 100 - 1;		//ARR定时器的计数范围
+TIM_TimeBaseInitStructure.TIM_Prescaler = 720 - 1;		//PSC预分频器的值
 TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
 TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
 
@@ -277,9 +279,160 @@ TIM_OCStructInit(&TIM_OCInitStructure);
 TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
 TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-TIM_OCInitStructure.TIM_Pulse = 0;		//CCR
+TIM_OCInitStructure.TIM_Pulse = 0;		//CCR 控制占空比
 TIM_OC1Init(TIM2, &TIM_OCInitStructure);
 
 TIM_Cmd(TIM2, ENABLE);
 ```
 
+## 如何修改其占空比
+
+占空比由ARR和CCR决定
+
+Duty=CCR/(ARR+1)
+
+所以修改CCR可以修改占空比
+
+使用**TIM_SetCompare1( )**可以修改占空比，删除**TIM_OCInitStructure.TIM_Pulse = 0;**，使用函数控制占空比
+
+```c
+/**
+  * @brief  Sets the TIMx Capture Compare1 Register value
+  * @param  TIMx: where x can be 1 to 17 except 6 and 7 to select the TIM peripheral.
+  * @param  Compare1: specifies the Capture Compare1 register new value.
+  * @retval None
+  */
+void TIM_SetCompare1(TIM_TypeDef* TIMx, uint16_t Compare1)
+```
+
+> 参数1、TIMx
+>
+> 参数2、CRR值
+
+例如
+
+```c
+TIM_SetCompare1(TIM2, 100);//修改通道1的CCR值
+```
+
+## 引脚占用，如何实现引脚重映射？
+
+此时需要AFIO的功能
+
+### 1、开启AFIO的时钟
+
+```c
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+```
+
+### 2、引脚重映射配置
+
+**8.3 表43**
+
+```c
+/**
+  * @brief  Changes the mapping of the specified pin.
+  * @param  GPIO_Remap: selects the pin to remap.
+  *   This parameter can be one of the following values:
+  *     @arg GPIO_Remap_SPI1             : SPI1 Alternate Function mapping
+  *     @arg GPIO_Remap_I2C1             : I2C1 Alternate Function mapping
+  *     @arg GPIO_Remap_USART1           : USART1 Alternate Function mapping
+  *     @arg GPIO_Remap_USART2           : USART2 Alternate Function mapping
+  *     @arg GPIO_PartialRemap_USART3    : USART3 Partial Alternate Function mapping
+  *     @arg GPIO_FullRemap_USART3       : USART3 Full Alternate Function mapping
+  *     @arg GPIO_PartialRemap_TIM1      : TIM1 Partial Alternate Function mapping
+  *     @arg GPIO_FullRemap_TIM1         : TIM1 Full Alternate Function mapping
+  *     @arg GPIO_PartialRemap1_TIM2     : TIM2 Partial1 Alternate Function mapping
+  *     @arg GPIO_PartialRemap2_TIM2     : TIM2 Partial2 Alternate Function mapping
+  *     @arg GPIO_FullRemap_TIM2         : TIM2 Full Alternate Function mapping
+  *     @arg GPIO_PartialRemap_TIM3      : TIM3 Partial Alternate Function mapping
+  *     @arg GPIO_FullRemap_TIM3         : TIM3 Full Alternate Function mapping
+  *     @arg GPIO_Remap_TIM4             : TIM4 Alternate Function mapping
+  *     @arg GPIO_Remap1_CAN1            : CAN1 Alternate Function mapping
+  *     @arg GPIO_Remap2_CAN1            : CAN1 Alternate Function mapping
+  *     @arg GPIO_Remap_PD01             : PD01 Alternate Function mapping
+  *     @arg GPIO_Remap_TIM5CH4_LSI      : LSI connected to TIM5 Channel4 input capture for calibration
+  *     @arg GPIO_Remap_ADC1_ETRGINJ     : ADC1 External Trigger Injected Conversion remapping
+  *     @arg GPIO_Remap_ADC1_ETRGREG     : ADC1 External Trigger Regular Conversion remapping
+  *     @arg GPIO_Remap_ADC2_ETRGINJ     : ADC2 External Trigger Injected Conversion remapping
+  *     @arg GPIO_Remap_ADC2_ETRGREG     : ADC2 External Trigger Regular Conversion remapping
+  *     @arg GPIO_Remap_ETH              : Ethernet remapping (only for Connectivity line devices)
+  *     @arg GPIO_Remap_CAN2             : CAN2 remapping (only for Connectivity line devices)
+  *     @arg GPIO_Remap_SWJ_NoJTRST      : Full SWJ Enabled (JTAG-DP + SW-DP) but without JTRST
+  *     @arg GPIO_Remap_SWJ_JTAGDisable  : JTAG-DP Disabled and SW-DP Enabled
+  *     @arg GPIO_Remap_SWJ_Disable      : Full SWJ Disabled (JTAG-DP + SW-DP)
+  *     @arg GPIO_Remap_SPI3             : SPI3/I2S3 Alternate Function mapping (only for Connectivity line devices)
+  *                                        When the SPI3/I2S3 is remapped using this function, the SWJ is configured
+  *                                        to Full SWJ Enabled (JTAG-DP + SW-DP) but without JTRST.   
+  *     @arg GPIO_Remap_TIM2ITR1_PTP_SOF : Ethernet PTP output or USB OTG SOF (Start of Frame) connected
+  *                                        to TIM2 Internal Trigger 1 for calibration (only for Connectivity line devices)
+  *                                        If the GPIO_Remap_TIM2ITR1_PTP_SOF is enabled the TIM2 ITR1 is connected to 
+  *                                        Ethernet PTP output. When Reset TIM2 ITR1 is connected to USB OTG SOF output.    
+  *     @arg GPIO_Remap_PTP_PPS          : Ethernet MAC PPS_PTS output on PB05 (only for Connectivity line devices)
+  *     @arg GPIO_Remap_TIM15            : TIM15 Alternate Function mapping (only for Value line devices)
+  *     @arg GPIO_Remap_TIM16            : TIM16 Alternate Function mapping (only for Value line devices)
+  *     @arg GPIO_Remap_TIM17            : TIM17 Alternate Function mapping (only for Value line devices)
+  *     @arg GPIO_Remap_CEC              : CEC Alternate Function mapping (only for Value line devices)
+  *     @arg GPIO_Remap_TIM1_DMA         : TIM1 DMA requests mapping (only for Value line devices)
+  *     @arg GPIO_Remap_TIM9             : TIM9 Alternate Function mapping (only for XL-density devices)
+  *     @arg GPIO_Remap_TIM10            : TIM10 Alternate Function mapping (only for XL-density devices)
+  *     @arg GPIO_Remap_TIM11            : TIM11 Alternate Function mapping (only for XL-density devices)
+  *     @arg GPIO_Remap_TIM13            : TIM13 Alternate Function mapping (only for High density Value line and XL-density devices)
+  *     @arg GPIO_Remap_TIM14            : TIM14 Alternate Function mapping (only for High density Value line and XL-density devices)
+  *     @arg GPIO_Remap_FSMC_NADV        : FSMC_NADV Alternate Function mapping (only for High density Value line and XL-density devices)
+  *     @arg GPIO_Remap_TIM67_DAC_DMA    : TIM6/TIM7 and DAC DMA requests remapping (only for High density Value line devices)
+  *     @arg GPIO_Remap_TIM12            : TIM12 Alternate Function mapping (only for High density Value line devices)
+  *     @arg GPIO_Remap_MISC             : Miscellaneous Remap (DMA2 Channel5 Position and DAC Trigger remapping, 
+  *                                        only for High density Value line devices)     
+  * @param  NewState: new state of the port pin remapping.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void GPIO_PinRemapConfig(uint32_t GPIO_Remap, FunctionalState NewState)
+```
+
+> 参数1、配置映射方式，将PA0映射到PA15，选择部分重映射方式1和完全重映射
+>
+> 就是 **GPIO_PartialRemap1_TIM2** 或者 **GPIO_FullRemap_TIM2**
+>
+> 参数2、ENABLE or DISABLE
+
+```
+GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2, ENABLE);
+```
+
+但是需要注意的是PA15默认用来作为调试端口，故还需要关闭调试端口的复用
+
+```c
+GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
+```
+
+然后将IO由0改为15
+
+```c
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;	
+```
+
+## 关于同一个定时器的不同通道
+
+同一个定时器不同的通道输出的PWM，频率相同，行为一致，但是占用比可以不同，因为CCR可以独立设定
+
+## 对于控制舵机
+
+建议设置PSC=72，AAR=20k
+
+CCR设置为500~2500
+
+对于上面的参数
+
+```c
+PWM_SetCompare2(Angle / 180 * 2000 + 500);
+```
+
+上面的代码Angle为度0~180
+
+因为期望为0~180，而CCR的值范围500~2500
+
+对Angle/180得到单位大小，然后*2000得到对应的1度的CCR间隔，再加上500的初始值
+
+即为 <u>Angle / 180 * 2000 + 500</u>
