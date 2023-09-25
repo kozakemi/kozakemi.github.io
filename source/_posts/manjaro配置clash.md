@@ -1,11 +1,16 @@
 ---
-title: manjaro配置Clash
-tags: []
+title: Manjaro配置Clash
 id: '741'
+tags:
+  - Linux
+  - Manjaro
+  - Arch
+  - Clash
+  - 网络
 categories:
-  - - LINUX
-  - - system
-  - - 软件
+  - 操作系统
+  - 软件
+  - 网络管理
 abbrlink: 6a548118
 date: 2022-09-15 15:49:23
 ---

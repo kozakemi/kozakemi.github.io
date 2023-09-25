@@ -3,6 +3,12 @@ title: Linux 文件与文件夹与目录管理
 abbrlink: dec2fff5
 date: 2023-08-30 21:57:51
 tags:
+    - Linux
+    - 文件管理
+    - 目录管理
+    - Shell
+categories:
+    - 系统管理
 ---
 
 ### 列出文件 ls

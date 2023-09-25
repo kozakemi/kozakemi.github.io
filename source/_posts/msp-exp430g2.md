@@ -1,12 +1,12 @@
 ---
 title: MSP-EXP430G2
-tags:
-  - G2553
-  - TI
 id: '228'
+tags:
+  - MSP430
+  - G2553
 categories:
-  - - MCU
-  - - TI
+  - 嵌入式开发
+  - TI
 abbrlink: 669d6f9d
 date: 2021-07-13 19:46:37
 ---

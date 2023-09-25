@@ -3,6 +3,10 @@ title: STM32 GPIO操作
 abbrlink: fea5aa33
 date: 2023-09-08 23:15:06
 tags:
+  - STM32
+  - GPIO
+categories:
+  - 嵌入式开发
 ---
 
 ## 外设时钟控制

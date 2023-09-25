@@ -3,6 +3,12 @@ title: Linux 操作系统学习大纲
 abbrlink: 224eb910
 date: 2023-08-30 21:09:54
 tags:
+    - Linux
+    - 操作系统
+    - 学习大纲
+categories:
+    - 学习大纲
+    - 操作系统
 ---
 
 ## 入门

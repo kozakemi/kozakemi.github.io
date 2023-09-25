@@ -1,13 +1,12 @@
 ---
 title: openSUSE编码器问题
 tags:
-  - LINUX
+  - Linux
   - opemSUSE
+  - 问题
 id: '393'
 categories:
-  - - LINUX
-  - - openSUSE
-  - - system
+  - 操作系统
 abbrlink: 1acf3ca2
 date: 2021-09-13 23:25:10
 ---

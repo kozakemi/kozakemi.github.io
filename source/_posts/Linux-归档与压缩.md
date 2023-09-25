@@ -3,6 +3,12 @@ title: Linux 归档与压缩
 abbrlink: 90fa8abe
 date: 2023-08-30 22:13:19
 tags:
+    - Linux
+    - 文件管理
+    - 目录管理
+    - shell
+categories:
+    - 系统管理
 ---
 
 ### [tar命令介绍](https://gnu-linux.readthedocs.io/zh/latest/Chapter01/00_tar.html)

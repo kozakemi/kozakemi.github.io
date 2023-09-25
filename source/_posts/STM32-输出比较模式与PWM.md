@@ -4,6 +4,13 @@ typora-copy-images-to: STM32-输出比较模式与PWM
 abbrlink: 96746b21
 date: 2023-09-20 23:20:01
 tags:
+  - STM32
+  - TIM
+  - PWM
+  - 输出比较
+categories:
+  - 嵌入式开发
+  - STM32
 ---
 
 【STM32入门教程-2023持续更新中】https://www.bilibili.com/video/BV1th411z7sn?p=16&vd_source=a72069186a610509925b0932bb49f8cc

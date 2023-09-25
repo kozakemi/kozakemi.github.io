@@ -4,6 +4,12 @@ typora-copy-images-to: Linux-服务与定时服务
 abbrlink: c6579246
 date: 2023-09-01 11:10:51
 tags:
+    - Linux
+    - 服务
+    - 定时服务
+    - shell
+categories:
+    - 系统管理
 ---
 讲解 service 与 timer 之前，首先了解 `systemd`
 

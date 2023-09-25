@@ -1,14 +1,14 @@
 ---
 title: 使用Git上传项目文件夹(http方式)
-tags:
-  - 软件
 id: '646'
-categories:
-  - - system
-  - - Windows
-  - - 软件
 abbrlink: a455639f
 date: 2022-01-18 19:33:00
+excerpt: 本文介绍了使用Git通过HTTP方式上传项目文件夹的操作步骤。包括安装Git、初始化Git仓库、添加文件、提交修改、设置邮箱和用户名、添加远程仓库链接以及上传代码至远程仓库等步骤
+tags:
+  - git
+  - 版本控制
+categories:
+  - 开发工具
 ---
 
 ![1.11.12.58](https://kozakemi.oss-cn-beijing.aliyuncs.com/1.11.12.58.png)
@@ -20,7 +20,6 @@ git下载 官网地址: [https://git-scm.com/downloads](https://git-scm.com/down
 一直点击next即安装完成
 
 ## 使用git上传
-
 ### 在要上传的文件夹内右键 点击 `Git Bash Here`
 
 ![image-20220111122650244](https://kozakemi.oss-cn-beijing.aliyuncs.com/image-20220111122650244.png)

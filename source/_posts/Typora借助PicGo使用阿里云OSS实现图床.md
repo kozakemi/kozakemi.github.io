@@ -4,6 +4,14 @@ typora-copy-images-to: Typora借助PicGo使用阿里云OSS实现图床
 abbrlink: f7b75cc
 date: 2023-08-31 18:41:47
 tags:
+  - Markdown 
+  - 图床
+  - Typora
+  - PicGo
+  - OSS
+categories:
+  - 工具使用
+  - 开发工具
 ---
 
 ## 参考链接：

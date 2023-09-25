@@ -1,12 +1,12 @@
 ---
 title: MSP-EXP430F5529LP「未完成」
-tags:
-  - F5529
-  - TI
 id: '265'
+tags:
+  - MSP430
+  - F5529
 categories:
-  - - MCU
-  - - TI
+  - 嵌入式开发
+  - TI
 abbrlink: c973fd9a
 date: 2021-08-05 17:36:47
 ---

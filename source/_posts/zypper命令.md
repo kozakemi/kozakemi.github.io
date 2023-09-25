@@ -1,14 +1,13 @@
 ---
 title: zypper命令
 tags:
-  - LINUX
+  - Linux
   - openSUSE
   - zypper
+  - 软件包管理
 id: '390'
 categories:
-  - - LINUX
-  - - openSUSE
-  - - system
+  - 操作系统
 abbrlink: e8479034
 date: 2021-09-13 23:21:37
 ---

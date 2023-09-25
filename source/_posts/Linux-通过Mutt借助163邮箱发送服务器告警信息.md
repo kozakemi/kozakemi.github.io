@@ -1,9 +1,15 @@
 ---
 title: Linux 通过Mutt借助163邮箱发送服务器告警信息
-tags: 实验
 typora-copy-images-to: Linux-通过Mutt借助163邮箱发送服务器告警信息
 abbrlink: df1bdf7
 date: 2023-09-01 09:21:58
+tags:
+    - 实验
+    - Linux
+    - 系统监测
+    - Mutt
+categories:
+    - 系统管理
 ---
 
 使用的环境为Ubuntu 20.04LTS

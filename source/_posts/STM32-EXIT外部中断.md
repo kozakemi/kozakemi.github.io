@@ -4,6 +4,12 @@ typora-copy-images-to: STM32-EXIT外部中断
 abbrlink: 7366408c
 date: 2023-09-19 19:57:48
 tags:
+  - STM32
+  - EXTI
+  - NVIC
+  - 外部中断
+categories:
+  - 嵌入式开发
 ---
 > 大量参考[江协科技](https://www.bilibili.com/video/BV1th411z7sn?p=12&vd_source=a72069186a610509925b0932bb49f8cc)视频，十分感谢给出的教程
 

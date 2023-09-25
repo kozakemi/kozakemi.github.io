@@ -1,10 +1,13 @@
 ---
 title: Quartus II 9.1sp2 免费版安装教程
-tags: []
 id: '676'
+tags:
+  - FPGA
+  - Quartus
 categories:
-  - - 实验
-  - - 软件
+  - 嵌入式开发
+  - 软件
+  - FPGA
 abbrlink: afed55e0
 date: 2022-03-18 11:08:36
 ---

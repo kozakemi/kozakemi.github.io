@@ -1,14 +1,13 @@
 ---
 title: openSUSE安装NVIDIA驱动
 tags:
-  - LINUX
-  - NVIDIA
+  - Linux
   - openSUSE
+  - NVIDIA
+  - 驱动
 id: '395'
 categories:
-  - - LINUX
-  - - openSUSE
-  - - system
+  - 操作系统
 abbrlink: 1792a0e4
 date: 2021-09-13 23:31:14
 ---

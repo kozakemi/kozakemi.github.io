@@ -1,19 +1,16 @@
 ---
 title: Keil uVision5 C51安装+烧录工具
-tags:
-  - C51
-  - keil5
-  - 软件
 id: '503'
-categories:
-  - - C/C++
-  - - C51
-  - - MCU
-  - - system
-  - - Windows
-  - - 编程语言
 abbrlink: '67323790'
 date: 2021-10-19 13:13:59
+tags:
+  - Keil
+  - C51
+  - 8051
+categories:
+  - 嵌入式开发
+  - 开发工具
+  - 8051
 ---
 
 # 关闭安全防护软件

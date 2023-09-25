@@ -1,14 +1,13 @@
 ---
 title: VMware Workstation 16 安装
-tags: []
 id: '649'
+tags:
+  - VMware 
+  - 虚拟机
 categories:
-  - - LINUX
-  - - macOS
-  - - system
-  - - UNIX
-  - - Windows
-  - - 软件
+  - 软件 
+  - 虚拟化
+  - 开发工具
 abbrlink: 4b7fc71a
 date: 2022-01-18 19:45:59
 ---

@@ -4,6 +4,14 @@ typora-copy-images-to: STM32-TIM输入捕获与PWM频率测定
 abbrlink: fe41f394
 date: 2023-09-22 20:59:55
 tags:
+  - STM32
+  - TIM
+  - PWM
+  - 输入捕获
+  - 频率测定
+categories:
+  - 嵌入式开发
+  - STM32
 ---
 
 【STM32入门教程-2023持续更新中】https://www.bilibili.com/video/BV1th411z7sn?p=17&vd_source=a72069186a610509925b0932bb49f8cc

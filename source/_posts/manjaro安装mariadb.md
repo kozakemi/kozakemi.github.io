@@ -1,10 +1,15 @@
 ---
 title: manjaro安装mariadb
-tags: []
 id: '733'
+tags: 
+  - Linux
+  - Manjaro
+  - Arch
+  - mariadb
 categories:
-  - - LINUX
-  - - system
+  - 操作系统
+  - 数据库管理
+  - 软件
 abbrlink: bdacc44b
 date: 2022-09-04 00:41:51
 ---

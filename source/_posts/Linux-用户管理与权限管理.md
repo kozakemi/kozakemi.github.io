@@ -5,6 +5,12 @@ typora-copy-images-to:
 abbrlink: '99813e34'
 date: 2023-08-30 22:16:15
 tags:
+    - Linux
+    - 用户管理
+    - 权限管理
+    - Shell
+categories:
+    - 系统管理
 ---
 
 ## 用户管理

@@ -1,12 +1,11 @@
 ---
 title: Python笔记
 tags:
-  - python
+  - Python
   - 笔记
 id: '125'
 categories:
-  - - Python
-  - - 大学笔记
+  - 编程学习
 abbrlink: d83aff49
 date: 2021-06-23 22:26:33
 ---

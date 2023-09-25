@@ -1,13 +1,11 @@
 ---
 title: MATLAB作业
+id: '388'
 tags:
   - MATLAB
   - 作业
-id: '388'
 categories:
-  - - Matlab
-  - - 大学笔记
-  - - 编程语言
+  - 编程学习
 abbrlink: 7c1c2be7
 date: 2021-09-13 22:49:49
 ---

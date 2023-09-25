@@ -1,12 +1,11 @@
 ---
 title: Matlab字符串
+id: '405'
 tags:
   - MATLAB
-id: '405'
+  - 字符串
 categories:
-  - - Matlab
-  - - 大学笔记
-  - - 编程语言
+  - 编程学习
 abbrlink: f92121b4
 date: 2021-09-17 23:47:26
 ---

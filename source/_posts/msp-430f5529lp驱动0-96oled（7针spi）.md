@@ -1,12 +1,14 @@
 ---
 title: MSP-430F5529LP驱动0.96‘OLED（7针SPI）
 tags:
+  - MSP430
   - F5529
-  - OLED
+  - 显示
+  - SSD1306
 id: '465'
 categories:
-  - - MCU
-  - - TI
+  - 嵌入式开发
+  - TI
 abbrlink: abcf8255
 date: 2021-09-25 20:49:33
 ---

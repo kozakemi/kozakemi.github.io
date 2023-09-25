@@ -1,8 +1,14 @@
 ---
-title: ubuntu 软件包管理器 apt
+title: Ubuntu 软件包管理器 apt
 abbrlink: 78ff1fb3
 date: 2023-08-30 21:50:19
 tags:
+  - Linux 
+  - Ubuntu
+  - 软件管理器
+  - apt
+categories:
+  - 操作系统
 ---
 
 ubuntu的软件包管理器之一？

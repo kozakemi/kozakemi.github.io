@@ -1,10 +1,15 @@
 ---
-title: manjaro安装phpmyadmin
-tags: []
+title: Manjaro安装phpmyadmin
 id: '736'
+tags: 
+  - Linux
+  - Manjaro
+  - Arch
+  - phpmyadmin
 categories:
-  - - LINUX
-  - - system
+  - 操作系统
+  - 数据库管理
+  - 软件
 abbrlink: 67d54df2
 date: 2022-09-04 00:43:42
 ---

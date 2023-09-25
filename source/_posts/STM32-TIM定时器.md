@@ -4,6 +4,10 @@ typora-copy-images-to: STM32-TIM定时器
 abbrlink: 12e3998c
 date: 2023-09-20 21:57:45
 tags:
+  - STM32
+  - TIM
+categories:
+  - 嵌入式开发
 ---
 
 > 大量参考[江协科技](https://www.bilibili.com/video/BV1th411z7sn?p=14&vd_source=a72069186a610509925b0932bb49f8cc)视频，十分感谢给出的教程
