@@ -1,5 +1,5 @@
 ---
-title: STM32 TIM输出比较模式与PWM
+title: STM32 TIM输出比较模式与PWM输出
 typora-copy-images-to: STM32-输出比较模式与PWM
 abbrlink: 96746b21
 date: 2023-09-20 23:20:01
@@ -21,6 +21,8 @@ tags:
 ![image-20230920222857886](STM32-输出比较模式与PWM/image-20230920222857886.png)
 
 上图 ARR=99 CCR=29
+
+一般根据分辨率先确定ARR，之后设置PSC设置频率，使用CCR设置占空比
 
 ## 输出比较模块配置函数
 
