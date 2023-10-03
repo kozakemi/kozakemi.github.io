@@ -39,7 +39,7 @@ EXTI可以检测GPIO的电平，当电平变化时，EXIT向NVIC发出中断申�
 
 AFIO类似于数据选择器，会在GPIOXx中选择选择其一
 
-外部中断9_5 15_10,分别会触发一个中断函数
+外部中断9_5 15_10,只会触发一个中断函数，但是通过`GPIO_ReadInputDataBit`可以判断中断触发线，即可得知中断触发自何处
 
 ## 如何配置
 
@@ -230,21 +230,9 @@ typedef struct
 > #define EXTI_Line18      ((uint32_t)0x40000)  /*!< External interrupt line 18 Connected to the USB Device/USB OTG FS
 >                                                    Wakeup from suspend event */                                    
 > #define EXTI_Line19      ((uint32_t)0x80000)  /*!< External interrupt line 19 Connected to the Ethernet Wakeup event */
-> 
-> #define IS_EXTI_LINE(LINE) ((((LINE) & (uint32_t)0xFFF00000) == 0x00) && ((LINE) != (uint16_t)0x00))
-> #define IS_GET_EXTI_LINE(LINE) (((LINE) == EXTI_Line0) || ((LINE) == EXTI_Line1) || \
->                             ((LINE) == EXTI_Line2) || ((LINE) == EXTI_Line3) || \
->                             ((LINE) == EXTI_Line4) || ((LINE) == EXTI_Line5) || \
->                             ((LINE) == EXTI_Line6) || ((LINE) == EXTI_Line7) || \
->                             ((LINE) == EXTI_Line8) || ((LINE) == EXTI_Line9) || \
->                             ((LINE) == EXTI_Line10) || ((LINE) == EXTI_Line11) || \
->                             ((LINE) == EXTI_Line12) || ((LINE) == EXTI_Line13) || \
->                             ((LINE) == EXTI_Line14) || ((LINE) == EXTI_Line15) || \
->                             ((LINE) == EXTI_Line16) || ((LINE) == EXTI_Line17) || \
->                             ((LINE) == EXTI_Line18) || ((LINE) == EXTI_Line19))
-> 
+> 。。。
 > ```
->
+> 
 > 例如PB14为 EXTI_Line14，**EXTI_InitStructure.EXTI_Line = EXTI_Line14;**
 
 > EXTI_Mode：设置中断线模式
@@ -468,7 +456,9 @@ void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState);//系�
 void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource);
 ```
 
-### 配置中断函数
+
+
+## 配置中断函数
 
 查看**startup_stm32f10x_md.s**，查找**IRQHandler**字段，即为函数名PinB14为**EXTI15_10**,故对应**EXTI15_10_IRQHandler**
 
@@ -534,31 +524,31 @@ void EXTI15_10_IRQHandler(void)
 uint16_t CountSensor_Count;
 void CountSensor_Init(void)
 {
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);//启用GPIOB的时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);//启用AFIO的时钟
 	
-	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_InitTypeDef GPIO_InitStructure;//创建GPIO配置的结构体
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;//设置为上拉输入模式
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;//设置引脚为14
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//设置频率为50mhz
+	GPIO_Init(GPIOB, &GPIO_InitStructure);//使用上部的结构体初始化
 	
-	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);
+	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);//配置AFIO选择器，配置中断源B配置外部中断线14
 	
-	EXTI_InitTypeDef EXTI_InitStructure;
-	EXTI_InitStructure.EXTI_Line = EXTI_Line14;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_Init(&EXTI_InitStructure);
+	EXTI_InitTypeDef EXTI_InitStructure;//创建EXTI结构体
+	EXTI_InitStructure.EXTI_Line = EXTI_Line14;//设置EXTI lines的组合
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;//启用
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//设置模式为中断模式
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//设置为下降沿触发
+	EXTI_Init(&EXTI_InitStructure);//初始化EXTI
 	
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//配置NVIC的分组为2分组
 	
-	NVIC_InitTypeDef NVIC_InitStructure;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitTypeDef NVIC_InitStructure;//初始化NVIC结构体
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;//设置中断通道
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//启用
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;//抢占优先级
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;//响应优先级
 	NVIC_Init(&NVIC_InitStructure);
 }
 
@@ -576,15 +566,24 @@ int main(void)
 }
 void EXTI15_10_IRQHandler(void)
 {
-	if (EXTI_GetITStatus(EXTI_Line14) == SET)
+	if (EXTI_GetITStatus(EXTI_Line14) == SET)//获取中断标志位是否为1
 	{
 		/*如果出现数据乱跳的现象，可再次判断引脚电平，以避免抖动*/
 		if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_14) == 0)
 		{
 			CountSensor_Count ++;
 		}
-		EXTI_ClearITPendingBit(EXTI_Line14);
+		EXTI_ClearITPendingBit(EXTI_Line14);//清除中断标志位
 	}
 }
 
 ```
+
+## 总结
+
+ 第一步，配置RCC ，需要开启GPIO与AFIO的时钟
+ 第二步，配置GPIO，选择我们的端口为输入模式
+ 第三步，配置AFIO，连接到我们用的GPIO
+ 第四步，配置EXTI，选择触发方式，与中断模式
+ 第五步，配置NVIC，配置中断通道以及中断优先级（抢占优先级与响应优先级） 
+ 第六步，配置中断函数，出现中断的具体实现	

@@ -89,7 +89,7 @@ typedef struct
 }GPIO_InitTypeDef;
 ```
 
-> GPIO_Pin查询GPIO_pins_define
+> **GPIO_Pin **查询GPIO_pins_define
 >
 > ```c
 > /** @defgroup GPIO_pins_define 
@@ -100,47 +100,17 @@ typedef struct
 > #define GPIO_Pin_1                 ((uint16_t)0x0002)  /*!< Pin 1 selected */
 > #define GPIO_Pin_2                 ((uint16_t)0x0004)  /*!< Pin 2 selected */
 > #define GPIO_Pin_3                 ((uint16_t)0x0008)  /*!< Pin 3 selected */
-> #define GPIO_Pin_4                 ((uint16_t)0x0010)  /*!< Pin 4 selected */
-> #define GPIO_Pin_5                 ((uint16_t)0x0020)  /*!< Pin 5 selected */
-> #define GPIO_Pin_6                 ((uint16_t)0x0040)  /*!< Pin 6 selected */
-> #define GPIO_Pin_7                 ((uint16_t)0x0080)  /*!< Pin 7 selected */
-> #define GPIO_Pin_8                 ((uint16_t)0x0100)  /*!< Pin 8 selected */
-> #define GPIO_Pin_9                 ((uint16_t)0x0200)  /*!< Pin 9 selected */
-> #define GPIO_Pin_10                ((uint16_t)0x0400)  /*!< Pin 10 selected */
-> #define GPIO_Pin_11                ((uint16_t)0x0800)  /*!< Pin 11 selected */
+> #define GPIO_Pin_4                 ((uint16_t)0x0010)  /*!< Pin 4 selected . . . .
 > #define GPIO_Pin_12                ((uint16_t)0x1000)  /*!< Pin 12 selected */
 > #define GPIO_Pin_13                ((uint16_t)0x2000)  /*!< Pin 13 selected */
 > #define GPIO_Pin_14                ((uint16_t)0x4000)  /*!< Pin 14 selected */
 > #define GPIO_Pin_15                ((uint16_t)0x8000)  /*!< Pin 15 selected */
 > #define GPIO_Pin_All               ((uint16_t)0xFFFF)  /*!< All pins selected */
-> 
-> #define IS_GPIO_PIN(PIN) ((((PIN) & (uint16_t)0x00) == 0x00) && ((PIN) != (uint16_t)0x00))
-> 
-> #define IS_GET_GPIO_PIN(PIN) (((PIN) == GPIO_Pin_0) || \
->                               ((PIN) == GPIO_Pin_1) || \
->                               ((PIN) == GPIO_Pin_2) || \
->                               ((PIN) == GPIO_Pin_3) || \
->                               ((PIN) == GPIO_Pin_4) || \
->                               ((PIN) == GPIO_Pin_5) || \
->                               ((PIN) == GPIO_Pin_6) || \
->                               ((PIN) == GPIO_Pin_7) || \
->                               ((PIN) == GPIO_Pin_8) || \
->                               ((PIN) == GPIO_Pin_9) || \
->                               ((PIN) == GPIO_Pin_10) || \
->                               ((PIN) == GPIO_Pin_11) || \
->                               ((PIN) == GPIO_Pin_12) || \
->                               ((PIN) == GPIO_Pin_13) || \
->                               ((PIN) == GPIO_Pin_14) || \
->                               ((PIN) == GPIO_Pin_15))
-> 
-> /**
->   * @}
->   */
 > ```
->
+> 
 > 由于点灯使用A的0号引脚，故使用GPIO_Pin_0，即GPIO_InitStructure.GPIO_Pin=GPIO_Pin_0;
 
-> GPIO_Mode 查询GPIOMode_TypeDef GPIO的八种工作模式
+> **GPIO_Mode** 查询GPIOMode_TypeDef GPIO的八种工作模式
 >
 > ```c
 > typedef enum
@@ -158,7 +128,7 @@ typedef struct
 > 由于点灯使用推挽输出，故 GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP；
 >
 
-> GPIO_Speed 查询 GPIOSpeed_TypeDef
+> **GPIO_Speed** 查询 GPIOSpeed_TypeDef
 >
 > ```c
 > typedef enum
@@ -522,3 +492,26 @@ int main(void)
 推挽输出再高电平与低电平都具有驱动能力
 
 开漏输出低电平有驱动能力，高电平相当于高阻态无驱动能力
+
+## 总结
+
+### 代码总体的书写流程
+
+第一步，配置RCC外设时钟控制
+
+第二步，初始化GPIO引脚，借助结构体配置io引脚号、模式、频率等，其中模式很重要
+
+第三步，根据选择的模式，使用使用输入或者输出的函数，实现其余的代码逻辑
+
+
+
+### GPIO的8种工作模式
+
+1. `GPIO_Mode_AIN`（模拟输入）：将引脚配置为模拟输入模式。此模式适用于连接到模拟信号的引脚，用于测量或读取模拟电压。
+2. `GPIO_Mode_IN_FLOATING`（浮空输入）：将引脚配置为浮空输入模式。在此模式下，引脚既不连接到外部电源也不连接到地，可以用作普通输入引脚。
+3. `GPIO_Mode_IPD`（下拉输入）：将引脚配置为下拉输入模式。在此模式下，引脚被连接到地，并且在未连接到外部信号时，引脚被拉低为逻辑低电平。
+4. `GPIO_Mode_IPU`（上拉输入）：将引脚配置为上拉输入模式。在此模式下，引脚被连接到外部电源，并且在未连接到外部信号时，引脚被拉高为逻辑高电平。
+5. `GPIO_Mode_Out_OD`（开漏输出）：将引脚配置为开漏输出模式。在此模式下，引脚可以输出高电平或悬空（高阻态），但不能输出低电平。需要通过外部上拉电阻或其他引脚来拉低引脚电平。
+6. `GPIO_Mode_Out_PP`（推挽输出）：将引脚配置为推挽输出模式。在此模式下，引脚可以输出高电平或低电平，可以直接驱动外部电路。
+7. `GPIO_Mode_AF_OD`（复用开漏）：将引脚配置为复用开漏模式。在此模式下，引脚用于特定的外设功能，并且输出为开漏模式。需要通过外部上拉电阻或其他引脚来拉低引脚电平。
+8. `GPIO_Mode_AF_PP`（复用推挽）：将引脚配置为复用推挽模式。在此模式下，引脚用于特定的外设功能，并且输出为推挽模式，可以直接驱动外部电路。

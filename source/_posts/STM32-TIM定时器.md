@@ -11,6 +11,22 @@ categories:
 ---
 
 > 大量参考[江协科技](https://www.bilibili.com/video/BV1th411z7sn?p=14&vd_source=a72069186a610509925b0932bb49f8cc)视频，十分感谢给出的教程
+>
+
+## 计算公式
+
+```shell
+CK_CNT=CK_PSC/(PSC+1)
+CK_CNT_OV=CK_CNT/(ARR+1)
+CK_CNT_OV=CK_PSC/(PSC+1)/(ARR+1)
+# CK_PSC：stm32频率 72Mhz
+# PSC：TIM_Prescaler值 max:65535  预分频器
+# ARR：TIM_Period值 max:65535     自动重装器
+# CK_CNT:计数计数频率
+# CK_CNT_OV：频率
+```
+
+假设，计时1s,那么可先想到ARR=72,PSC=1000000,但是这样会超出max,所以，可以选用ARR=7200,PSC=10000的方案，但是不是唯一的，只要计算出CK_CNT_OV=1且设置的值不会超出即可，高的计数频率便设置高的计数，低的计数频率就设置低的计数
 
 ## 相关函数介绍
 
@@ -52,34 +68,34 @@ void TIM_ClearITPendingBit(TIM_TypeDef* TIMx, uint16_t TIM_IT);
 ```c
 void Timer_Init(void)
 {
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);//启用定时器2的时钟
 	
-	TIM_InternalClockConfig(TIM2);
+	TIM_InternalClockConfig(TIM2);//设置时钟为内部时钟
 	
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
-	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 7200 - 1;
-	TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
-	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;//初始化定时器结构体
+	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;//设置分频系数
+	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;//设置计数模式
+	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;//设置自动重装值
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 7200 - 1;//设置预分频器的值
+	TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;//设置重复寄存器值，仅高级寄存器有效
+	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);//初始化定时器
 	
 	TIM_ClearFlag(TIM2, TIM_FLAG_Update);//防止初始化时进入中断
-	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);//启用定时器
 	
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置NVIC智能高端分组
 	
-	NVIC_InitTypeDef NVIC_InitStructure;
-	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-	NVIC_Init(&NVIC_InitStructure);
+	NVIC_InitTypeDef NVIC_InitStructure;//初始化NVIC结构体
+	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;//设置中断触发通道
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//启用
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;//设置抢占优先级值
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;//设置响应优先级的值
+	NVIC_Init(&NVIC_InitStructure);//初始化 NVIC
 	
-	TIM_Cmd(TIM2, ENABLE);
+	TIM_Cmd(TIM2, ENABLE);//启用TIM2定时器
 }
 
-void TIM2_IRQHandler(void)
+void TIM2_IRQHandler(void)//定时中断函数
 {
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
@@ -115,12 +131,12 @@ TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
 
 其中结构体
 
-```
+```c
 TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-TIM_TimeBaseInitStructure.TIM_Prescaler = 7200 - 1;
+TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1; //ARR
+TIM_TimeBaseInitStructure.TIM_Prescaler = 7200 - 1; //PSC
 TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;·
 ```
 
@@ -246,6 +262,24 @@ void TIM2_IRQHandler(void)
 }
 ```
 
+### 总结
+
+第一步，配置RCC定时器的时钟
+
+第二步，配置时基单元为内部时钟（可以忽略）
+
+第三步，配置时基单元，这一步最为重要
+
+第四步，开启中断
+
+第五步，配置NVIC以配置中断通道与中断的优先级
+
+第六步，启动定时器
+
+第七步，中断函数的具体实现
+
+
+
 ## 添加使用外部时钟
 
 假设将外部时钟在PA0口
@@ -253,6 +287,8 @@ void TIM2_IRQHandler(void)
 ### 使用外部时钟
 
 将**TIM_InternalClockConfig(TIM2);**替换为
+
+即配置为外部时钟
 
 ```c
 TIM_ETRClockMode2Config(TIM2, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_NonInverted, 0x0F);
@@ -343,3 +379,10 @@ void Timer_Init(void)
 }
 ```
 
+### 总结
+
+第一步，配置RCC定时器的时钟，相较于内部时钟需要额外配置GPIO的时钟
+
+第二步，配置时基单元为外部时钟，设置时钟号、分频值、触发极性、滤波器
+
+之后的操作与配置使用内部时钟无异
