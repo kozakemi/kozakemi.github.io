@@ -9,8 +9,9 @@ tags:
   - PWM
   - 输出比较
 categories:
-  - 嵌入式开发
+  - 嵌入式开发 
   - STM32
+excerpt: 本文介绍了STM32微控制器的输出比较模式和PWM输出。它涵盖了PWM的三个参数（频率、占空比、幅值），并提供了有关输出比较模式的图示和配置函数的详细信息。
 ---
 
 【STM32入门教程-2023持续更新中】https://www.bilibili.com/video/BV1th411z7sn?p=16&vd_source=a72069186a610509925b0932bb49f8cc

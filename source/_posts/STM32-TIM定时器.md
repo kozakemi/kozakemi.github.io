@@ -8,6 +8,7 @@ tags:
   - TIM
 categories:
   - 嵌入式开发
+excerpt: 文章介绍了STM32系列微控制器中的TIM定时器模块。它详细解释了计算公式、相关函数和配置使用内部时钟的步骤。文章还提供了一个使用TIM2定时器的示例代码，并解释了配置时钟和时基单元的过程
 ---
 
 > 大量参考[江协科技](https://www.bilibili.com/video/BV1th411z7sn?p=14&vd_source=a72069186a610509925b0932bb49f8cc)视频，十分感谢给出的教程

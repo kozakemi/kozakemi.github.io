@@ -10,8 +10,8 @@ tags:
   - PicGo
   - OSS
 categories:
-  - 工具使用
   - 开发工具
+  - 工具使用
 ---
 
 ## 参考链接：

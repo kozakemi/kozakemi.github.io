@@ -10,6 +10,7 @@ tags:
   - 中断
 categories:
   - 嵌入式开发
+excerpt: 本文是关于STM32中断系统的简单介绍。
 ---
 
 ## 中断系统
