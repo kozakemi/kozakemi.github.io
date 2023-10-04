@@ -55,7 +55,7 @@ show_headindex_number: false # 侧栏文章目录是否显示章节编号
 # 文章
 excerpt: true # 是否显示文章摘要，为 false 则显示全文
 first_image_as_thumbnail: false # 自动取文章第一张图为特色图片
-article_meta: time|categories|words|readingtime # 文章 Meta 信息列表，用竖线分隔开，可选: time 发布时间, edittime 编辑时间, categories 分类, read 阅读量，words 字数, readingtime 预计阅读时间
+article_meta: time|categories|words|readingtime|read # 文章 Meta 信息列表，用竖线分隔开，可选: time 发布时间, edittime 编辑时间, categories 分类, read 阅读量，words 字数, readingtime 预计阅读时间
 reading_speed_cn: 300 # 每分钟中文阅读字数，用于计算预计阅读时间
 reading_speed_en: 160 # 每分钟英文阅读单词数，用于计算预计阅读时间
 donate_qrcode_url: '' # 赞赏二维码地址，留空则不显示
@@ -90,10 +90,10 @@ lazyload_effect: fadeIn # 图片显示动画
 lazyload_loading_style: 1 # 图片加载的动画, 可选值 1 ~ 11, none
 
 # Pangu.js
-enable_pangu: true # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
+enable_pangu: false # 是否启用 Pangu.js 自动用空格分隔文章中的中英文字符
 
 # 其他
-pjax_disabled: false # 是否禁用 Pjax
+pjax_disabled: true # 是否禁用 Pjax
 enable_into_article_animation: true # 是否启用进入文章动画
 enable_mobile_scale: true # 是否允许手机端缩放页面
 
@@ -170,11 +170,11 @@ waline: # https://waline.js.org/guide/get-started.html
 # 分析
 # 百度统计
 baidu_analytics:
-  enable: true # 是否启用 百度统计
+  enable: false # 是否启用 百度统计
   id: 'dde66cc9df6a98f13b08e1c6ba999728' # hm.js? 后的一串字符
 
 # gtag 谷歌全局网络代码
 # Google Analytics  Universal Analytics(old) 与 Google Analytics（分析）4 均使用 gtag
 gtag:
-  enable: true # 是否启用 gtag
+  enable: false # 是否启用 gtag
   id: 'G-RP8KMTS8MZ' # 请包含 G- 或 UA-

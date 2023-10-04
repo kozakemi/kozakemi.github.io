@@ -38,7 +38,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<% } %>
 	<%- open_graph() %>
-	<meta name="referrer" content="no-referrer-when-downgrade">
+
 	<meta name="theme-color" content="<%= theme.theme_color %>">
 	<meta name="theme-color-rgb" content="<%= hex2str(theme.theme_color) %>">
 	<meta name="theme-color-origin" content="<%= theme.theme_color %>">
@@ -53,12 +53,12 @@
 	<%- css('//fonts.loli.net/css?family=Open+Sans:300,400,600,700|Noto+Serif+SC:300,600&display=swap') %>
 	<%- js('/assets/argon_js_merged.js') %>
 	<%- js('/assets/js/argon.min.js') %>
-	<!-- <%- js('/assets/busuanzi.pure.mini.js') %> -->
+	<%- js('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js') %>
 
-	<!-- <% if (theme.gitalk.enable) { %>
-		<%- css('//unpkg.zhimg.com/gitalk@1/dist/gitalk.css') %>
-		<%- js('//unpkg.zhimg.com/gitalk@1/dist/gitalk.min.js') %>
-	<% } %> -->
+	<% if (theme.gitalk.enable) { %>
+		<%- css('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css') %>
+		<%- js('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js') %>
+	<% } %>
 
 	<script>
 		var argonConfig = {
@@ -484,7 +484,7 @@
 <div id="content" class="site-content">
 
 <% if (theme.waline.enable) { %>
-	<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@waline/client"></script>
 <% } %>
 
 <% if (theme.baidu_analytics.enable) { %>
