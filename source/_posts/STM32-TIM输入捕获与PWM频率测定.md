@@ -199,3 +199,32 @@ TIM_Cmd(TIM3, ENABLE);
 TIM_PWMIConfig(TIM3, &TIM_ICInitStructure);
 ```
 
+然后比较通道1与通道2的CCR值即可得到占空比，占空比的值为CCR1/CCR2
+
+占空比计算函数：
+
+```c
+uint32_t IC_GetDuty(void)
+{
+	return (TIM_GetCapture2(TIM3) + 1) * 100 / (TIM_GetCapture1(TIM3) + 1);
+}
+```
+
+```c
+/**
+  * @brief  Gets the TIMx Input Capture 1 value.
+  * @param  TIMx: where x can be 1 to 17 except 6 and 7 to select the TIM peripheral.
+  * @retval Capture Compare 1 Register value.
+  */
+uint16_t TIM_GetCapture1(TIM_TypeDef* TIMx)
+{
+  /* Check the parameters */
+  assert_param(IS_TIM_LIST8_PERIPH(TIMx));
+  /* Get the Capture 1 Register value */
+  return TIMx->CCR1;
+}
+```
+
+> 函数功能为获取CCR1的值
+>
+> 参数：TIMx
