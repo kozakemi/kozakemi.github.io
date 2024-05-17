@@ -15,7 +15,7 @@ info:
   # Author name
   author: Kozakemi
   # Site URL
-  url: https://redefine.ohevan.com
+  url: https://kozakemi.gitlab.io
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -37,7 +37,7 @@ colors:
   #Primary color
   primary: "#39C5BB"
   # Secondary color (TBD)
-  secondary:
+  secondary: "#39C5BB"
   # Default theme mode initial value (will be overwritten by prefer-color-scheme)
   default_mode: light # light, dark
 # COLORS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
@@ -85,7 +85,7 @@ global:
   open_graph: true
   # Google Analytics
   google_analytics:
-    enable: true # Whether to enable Google Analytics
+    enable: false # Whether to enable Google Analytics
     id: G-RP8KMTS8MZ # Google Analytics Measurement ID
 # SITE CUSTOMIZATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
     
@@ -114,7 +114,7 @@ home_banner:
   # Home banner image
   image: 
     light: /images/100533879_p0.jpg # light mode
-    dark:  /images/100533879_p0.jpg # dark mode
+    dark:  /images/ChMkJ1bKwhmIOy5NAAyb7fLsnzQAALGiwI7TvIADJwF546.jpg # dark mode
   # Home banner title
   title: 樱落星河
   # Home banner subtitle
@@ -233,16 +233,15 @@ home:
     announcement: # Announcement text
     show_on_mobile: true # Whether to show sidebar navigation on mobile sheet menu
     links:
-      # Archives: 
-      #   path: /archives 
-      #   icon: fa-regular fa-archive # can be empty
-      # Tags: 
-      #   path: /tags 
-      #   icon: fa-regular fa-tags # can be empty
-      # Categories: 
-      #   path: /categories 
-      #   icon: fa-regular fa-folder # can be empty
-      # ...... # you can add more
+      Archives: # 显示的名称
+        path: /archives # 路径
+        icon: fa-regular fa-archive # 图标，可以为空
+      Tags: # 显示的名称
+        path: /tags # 路径
+        icon: fa-regular fa-tags # 图标，可以为空
+      # Categories: # 显示的名称
+      #   path: /categories # 路径
+      #   icon: fa-regular fa-folder # 图标，可以为空
   # Article date format
   article_date_format: auto # auto, relative, YYYY-MM-DD, YYYY-MM-DD HH:mm:ss etc.
   # Article categories visibility
@@ -375,7 +374,7 @@ footer:
   # Icon in footer, write fontawesome icon code here
   icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>'
   # The start time of the website, format: YYYY/MM/DD HH:mm:ss
-  start: 2023/8/24 15:58:25
+  start: 2024/5/17 20:00:00
   # Site statistics
   statistics: true # show site statistics or not (total articles, total words)
   # Footer message
@@ -426,7 +425,7 @@ plugins:
       # .... you can add more audios here
   # Mermaid JS. Requires hexo-filter-mermaid-diagrams (npm i hexo-filter-mermaid-diagrams). See https://mermaid.js.org/
   mermaid:
-    enable: false # enable mermaid or not
+    enable: true # enable mermaid or not
     version: "9.3.0" # default v9.3.0
 # PLUGINS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 

@@ -14,6 +14,8 @@
   "dependencies": {
     "hexo": "^6.3.0",
     "hexo-abbrlink": "^2.2.1",
+    "hexo-all-minifier": "^0.5.7",
+    "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^3.0.0",
@@ -28,6 +30,7 @@
     "hexo-submit-urls-to-search-engine": "^2.1.0",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-theme-redefine": "^2.6.1",
-    "hexo-typora-image": "^0.1.2"
+    "hexo-typora-image": "^0.1.2",
+    "hexo-wordcount": "^6.0.1"
   }
 }
