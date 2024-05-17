@@ -7,7 +7,7 @@ title: 樱落星河
 subtitle: 分享大学学习笔记与美好瞬间
 description: 某信电院学生的博客，分享MCU（TI、C51、Arduino）、计算机语言（C/C++、Python）、日语等学习笔记、大学常用软件等笔记教程
 author: Kozakemi
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -32,6 +32,7 @@ skip_render:
   - "google7dfcdb6b8ddf2254.html"
   - "BingSiteAuth.xml"
   - "baidu_verify_codeva-OqqTDP6MDM.html"
+  - "images/a.svg"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -47,9 +48,9 @@ marked:
 relative_link: false
 future: true
 highlight:
-  enable: false
+  enable: true
   line_number: false
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -72,7 +73,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: argon
+# theme: argon
+theme: redefine
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -85,8 +87,6 @@ sitemap:
   path: sitemap.xml
   prettyURLs:
     trailingSlash: false
-
-
 
 search:
   path: search.xml
