@@ -113,8 +113,8 @@ home_banner:
   style: fixed # static or fixed
   # Home banner image
   image: 
-    light: /images/100533879_p0.jpg # light mode
-    dark:  /images/ChMkJ1bKwhmIOy5NAAyb7fLsnzQAALGiwI7TvIADJwF546.jpg # dark mode
+    light: /images/hatsune_miku_vocaloid_and_1_more_drawn_by_muo_user_gntu5233__2155173431122f24d6b19d906d4c6419.jpg # light mode
+    dark:  /images/hatsune_miku_vocaloid_and_1_more_drawn_by_muo_user_gntu5233__2155173431122f24d6b19d906d4c6419.jpg # dark mode
   # Home banner title
   title: 樱落星河
   # Home banner subtitle
@@ -132,7 +132,7 @@ home_banner:
   # Color of home banner text
   text_color: 
     light: "#fff" # light mode
-    dark: "#d1d1b6" # dark mode
+    dark: "#FFF" # dark mode
   # Specific style of the text
   text_style: 
     # Title font size
@@ -180,9 +180,9 @@ navbar:
   auto_hide: false
   # Navbar background color
   color:
-    left: "#39C5BB" #left side 
-    right: "#367df7"  #right side
-    transparency: 35 #percent (10-99)
+    left: "#FFFFFF" #left side 
+    right: "#FFFFFF"  #right side
+    transparency: 55 #percent (10-99)
   # Navbar width (usually no need to modify)
   width:
     home: 1200px #home page
