@@ -11,6 +11,7 @@ pages:
     - npm run build
     - rm -rf public/*
     - mv dist/* public/
+    
   artifacts:
     paths:
       # The folder that contains the built files to be published. This
