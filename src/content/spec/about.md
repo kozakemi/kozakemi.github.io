@@ -1,4 +1,6 @@
-# About
+# 关于
+
+## 主题信息
 This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
 
 ::github{repo="saicaca/fuwari"}
