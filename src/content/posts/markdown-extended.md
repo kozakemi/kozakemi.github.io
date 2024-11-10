@@ -1,6 +1,6 @@
 ---
 title: Markdown 扩展功能
-published: 2024-05-01
+published: 2020-05-01
 description: '了解更多关于 Fuwari 中的 Markdown 功能'
 image: ''
 tags: [Demo, Example, Markdown, Fuwari]

@@ -1,6 +1,6 @@
 ---
 title: Fuwari 的简单指南
-published: 2024-04-01
+published: 2020-04-01
 description: "如何使用此博客模板。"
 image: "./cover.jpeg"
 tags: ["Fuwari", "Blogging", "Customization"]
