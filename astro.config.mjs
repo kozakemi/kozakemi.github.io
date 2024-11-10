@@ -31,7 +31,7 @@ const oklchToHex = str => {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kozakemi.gitlab.io',
+  site: 'https://kozakemi.top',
   base: '/',
   trailingSlash: 'always',
   integrations: [
