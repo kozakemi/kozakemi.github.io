@@ -1,6 +1,8 @@
 ---
-title: MSP-EXP430F5529LP「未完成」
+title: MSP-EXP430F5529LP
 published: 2021-08-05 17:36:47
+tags: [MCU,TI,MSP430,F5529]
+category: 嵌入式
 draft: false
 ---
 

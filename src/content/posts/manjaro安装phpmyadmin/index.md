@@ -1,6 +1,8 @@
 ---
 title: Manjaro安装phpmyadmin
 published: 2022-09-04 00:43:42
+tags: [Manjaro,phpmyadmin,数据库]
+category: Linux操作系统
 draft: false
 ---
 

@@ -2,6 +2,8 @@
 title: STM32 GPIO操作
 published: 2023-09-08 23:15:06
 description: 文章介绍了如何在STM32微控制器上进行GPIO操作，包括外设时钟控制、GPIO初始化和GPIO输出。它提供了相应的函数和结构体定义，并给出了一些示例代码来演示如何设置引脚的工作模式、设置引脚的电平状态以及写入端口数据。
+tags: [MCU,ST,STM32,GPIO]
+category: 嵌入式
 draft: false
 ---
 

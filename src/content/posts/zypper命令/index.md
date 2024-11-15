@@ -1,6 +1,8 @@
 ---
 title: zypper命令
 published: 2021-09-13 23:21:37
+tags: [openSUSE,软件包管理器,zypper]
+category: Linux操作系统
 draft: false
 ---
 

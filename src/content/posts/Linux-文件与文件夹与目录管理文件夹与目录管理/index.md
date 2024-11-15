@@ -1,6 +1,8 @@
 ---
 title: Linux 文件与文件夹与目录管理
 published: 2023-08-30 21:57:51
+tags: [Linux基础知识,Linux文件与目录管理]
+category: Linux操作系统
 draft: false
 ---
 

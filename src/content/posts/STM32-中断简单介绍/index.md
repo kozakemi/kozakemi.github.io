@@ -2,6 +2,8 @@
 title: STM32 中断简单介绍
 published: 2023-09-19 19:56:00
 description: 本文是关于STM32中断系统的简单介绍。
+tags: [MCU,ST,STM32,中断系统]
+category: 嵌入式
 draft: false
 ---
 

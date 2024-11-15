@@ -1,6 +1,8 @@
 ---
 title: Manjaro配置Clash
 published: 2022-09-15 15:49:23
+tags: [Manjaro,网络工具]
+category: Linux操作系统
 draft: false
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: 数据结构实验
 published: 2021-09-24 00:41:06
+tags: ['C语言', 数据结构]
+category: 编程学习
 draft: false
 ---
 

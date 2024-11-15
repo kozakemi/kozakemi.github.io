@@ -1,6 +1,8 @@
 ---
 title: MSP-EXP430G2
 published: 2021-07-13 19:46:37
+tags: [MCU,TI,MSP430,G2553]
+category: 嵌入式
 draft: false
 ---
 

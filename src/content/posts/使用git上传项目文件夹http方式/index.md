@@ -2,6 +2,8 @@
 title: 使用Git上传项目文件夹(http方式)
 published: 2022-01-18 19:33:00
 description: 本文介绍了使用Git通过HTTP方式上传项目文件夹的操作步骤。包括安装Git、初始化Git仓库、添加文件、提交修改、设置邮箱和用户名、添加远程仓库链接以及上传代码至远程仓库等步骤
+tags: [git]
+category: 开发工具
 draft: false
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Keil uVision5 C51安装+烧录工具
 published: 2021-10-19 13:13:59
+tags: [开发环境,Keil,资源分享]
+category: 嵌入式
 draft: false
 ---
 

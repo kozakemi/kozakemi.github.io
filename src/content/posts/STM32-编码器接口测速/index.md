@@ -2,6 +2,8 @@
 title: STM32 编码器接口测速
 published: 2023-10-06 22:01:06
 description: 本文介绍了在STM32嵌入式开发中使用TIM定时器进行输入捕获方式实现编码器检测，用于检测编码器速度和位置。
+tags: [MCU,ST,STM32,编码器]
+category: 嵌入式
 draft: false
 ---
 

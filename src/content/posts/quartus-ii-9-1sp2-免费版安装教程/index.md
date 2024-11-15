@@ -1,6 +1,8 @@
 ---
 title: Quartus II 9.1sp2 免费版安装教程
 published: 2022-03-18 11:08:36
+tags: [开发环境,Quartus,FPGA,资源分享]
+category: 嵌入式
 draft: false
 ---
 

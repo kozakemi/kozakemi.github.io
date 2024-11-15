@@ -1,6 +1,8 @@
 ---
 title: Linux 三大帮助命令及其用法
 published: 2023-08-30 21:55:12
+tags: [常用命令,帮助命令]
+category: Linux操作系统
 draft: false
 ---
 

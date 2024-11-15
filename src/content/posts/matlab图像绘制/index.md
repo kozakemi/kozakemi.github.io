@@ -1,6 +1,8 @@
 ---
 title: matlab图像绘制
 published: 2021-10-18 07:38:02
+tags: [matlab,数据绘图]
+category: 编程学习
 draft: false
 ---
 

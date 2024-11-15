@@ -1,6 +1,8 @@
 ---
 title: Linux 服务与定时与定时服务
 published: 2023-09-01 11:10:51
+tags: [systemd,systemctl,Service]
+category: Linux操作系统
 draft: false
 ---
 讲解 service 与 timer 之前，首先了解 `systemd`

@@ -1,6 +1,8 @@
 ---
 title: Linux Nginx和Apache的简单配置
 published: 2023-09-01 14:44:14
+tags: [Nginx,Apache]
+category: Linux操作系统
 draft: false
 ---
 

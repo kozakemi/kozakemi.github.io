@@ -1,6 +1,8 @@
 ---
 title: Matlab字符串
 published: 2021-09-17 23:47:26
+tags: [matlab]
+category: 编程学习
 draft: false
 ---
 

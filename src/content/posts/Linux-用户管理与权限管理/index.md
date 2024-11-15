@@ -1,6 +1,8 @@
 ---
 title: Linux 用户管理与权限管理
 published: 2023-08-30 22:16:15
+tags: [Linux用户管理,Linux文件全线管理]
+category: Linux操作系统
 draft: false
 ---
 

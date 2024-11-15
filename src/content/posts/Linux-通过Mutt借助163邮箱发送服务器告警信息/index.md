@@ -1,6 +1,8 @@
 ---
 title: Linux 通过Mutt借助163邮箱发送服务器告警信息
 published: 2023-09-01 09:21:58
+tags: [Linux项目,邮箱服务器,状态监控,systemd,Timer]
+category: Linux操作系统
 draft: false
 ---
 

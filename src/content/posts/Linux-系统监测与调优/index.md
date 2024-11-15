@@ -1,6 +1,8 @@
 ---
 title: Linux 系统监测与调优
 published: 2023-09-04 22:49:11
+tags: [Linux系统监测]
+category: Linux操作系统
 draft: false
 ---
 ### 进程与内存的查看

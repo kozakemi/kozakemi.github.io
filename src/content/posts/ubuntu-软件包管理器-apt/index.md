@@ -1,6 +1,8 @@
 ---
 title: Ubuntu 软件包管理器 apt
 published: 2023-08-30 21:50:19
+tags: [Ubuntu,apt,软件包管理器]
+category: Linux操作系统
 draft: false
 ---
 

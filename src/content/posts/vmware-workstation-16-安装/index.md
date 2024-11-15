@@ -1,6 +1,8 @@
 ---
 title: VMware Workstation 16 安装
 published: 2022-01-18 19:45:59
+tags: [虚拟机,资源分享]
+category: 开发工具
 draft: false
 ---
 

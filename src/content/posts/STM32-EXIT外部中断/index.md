@@ -2,6 +2,8 @@
 title: STM32 EXIT外部中断
 published: 2023-09-19 19:57:48
 description: 本文介绍了关于STM32外部中断（EXTI）的内容。它介绍了EXTI的基本概念和作用，以及触发方式和支持的类型。文章还提供了配置STM32外部中断的示例代码，并解释了每个配置步骤的含义。文章涵盖了GPIO配置、AFIO选择器配置和EXTI配置等方面的内容。
+tags: [MCU,ST,STM32,中断系统,外部中断]
+category: 嵌入式
 draft: false
 ---
 > 大量参考[江协科技](https://www.bilibili.com/video/BV1th411z7sn?p=12&vd_source=a72069186a610509925b0932bb49f8cc)视频，十分感谢给出的教程

@@ -2,6 +2,8 @@
 title: STM32 TIM输出比较模式与PWM输出
 published: 2023-09-20 23:20:01
 description: 本文介绍了STM32微控制器的输出比较模式和PWM输出。它涵盖了PWM的三个参数（频率、占空比、幅值），并提供了有关输出比较模式的图示和配置函数的详细信息。
+tags: [MCU,ST,STM32,PWM]
+category: 嵌入式
 draft: false
 ---
 

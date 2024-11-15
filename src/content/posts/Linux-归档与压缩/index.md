@@ -1,6 +1,8 @@
 ---
 title: Linux 归档与压缩
 published: 2023-08-30 22:13:19
+tags: [Linux常用命令,归档,压缩包]
+category: Linux操作系统
 draft: false
 ---
 

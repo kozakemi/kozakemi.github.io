@@ -1,6 +1,8 @@
 ---
 title: Typora借助PicGo使用阿里云OSS实现图床
 published: 2023-08-31 18:41:47
+tags: [Typora,图床,OSS]
+category: 开发工具
 draft: false
 ---
 

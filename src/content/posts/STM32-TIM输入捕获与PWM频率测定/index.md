@@ -2,6 +2,8 @@
 title: STM32 TIM输入捕获与PWM频率测定
 published: 2023-09-22 20:59:55
 description: 本文介绍了在STM32嵌入式开发中使用TIM定时器进行输入捕获和PWM频率测定的方法。文章提供了相关函数和代码示例，包括配置输入捕获单元、选择触发源和触发操作等步骤。
+tags: [MCU,ST,STM32,定时器,定时器输入捕获]
+category: 嵌入式
 draft: false
 ---
 

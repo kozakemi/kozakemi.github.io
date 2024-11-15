@@ -1,6 +1,8 @@
 ---
 title: HC-05/HC-06蓝牙模块配置
 published: 2021-11-19 21:34:45
+tags: [蓝牙模块,HC-05,HC-06]
+category: 嵌入式
 draft: false
 ---
 

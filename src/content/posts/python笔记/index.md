@@ -1,6 +1,8 @@
 ---
 title: Python笔记
 published: 2021-06-23 22:26:33
+tags: [Python]
+category: 编程学习
 draft: false
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Linux 网络基础与网络安全
 published: 2023-09-04 23:05:07
+tags: [Linux安全,网络基础知识,防火墙]
+category: Linux操作系统
 draft: false
 ---
 ### 网络基础

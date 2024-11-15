@@ -1,6 +1,8 @@
 ---
 title: openSUSE安装NVIDIA驱动
 published: 2021-09-13 23:31:14
+tags: [openSUSE,Nvidia]
+category: Linux操作系统
 draft: false
 ---
 

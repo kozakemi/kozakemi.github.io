@@ -1,6 +1,8 @@
 ---
 title: manjaro安装mariadb
 published: 2022-09-04 00:41:51
+tags: [Manjaro,mariadb,数据库]
+category: Linux操作系统
 draft: false
 ---
 

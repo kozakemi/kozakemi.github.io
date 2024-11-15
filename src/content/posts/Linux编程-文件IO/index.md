@@ -2,6 +2,8 @@
 title: Linux编程-文件IO
 published: 2023-10-17 15:42:58
 description: 本文主要介绍了Linux的C语言编程实现文件操作
+tags: [Linux的C语言编程,Linux文件操作]
+category: Linux操作系统
 draft: false
 ---
 

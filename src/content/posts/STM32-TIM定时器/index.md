@@ -2,6 +2,8 @@
 title: STM32 TIM定时器
 published: 2023-09-20 21:57:45
 description: 文章介绍了STM32系列微控制器中的TIM定时器模块。它详细解释了计算公式、相关函数和配置使用内部时钟的步骤。文章还提供了一个使用TIM2定时器的示例代码，并解释了配置时钟和时基单元的过程
+tags: [MCU,ST,STM32,定时器]
+category: 嵌入式
 draft: false
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: openSUSE编码器问题
 published: 2021-09-13 23:25:10
+tags: [openSUSE,VideoDecode]
+category: Linux操作系统
 draft: false
 ---
 
