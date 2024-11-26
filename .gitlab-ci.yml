@@ -3,12 +3,16 @@ image: node:22.0.0
 
 before_script:
   # Functions that should be executed before the build script is run
-  - npm install
+  - npm install -g pnpm
+  - pnpm install 
+  - pnpm add sharp 
+  - pnpm exec playwright install 
+  - pnpm exec playwright install-deps  
 
 pages:
   script:
     # Specify the steps involved to build your app here
-    - npm run build
+    - pnpm build
     - rm -rf public/*
     - mv dist/* public/
     
