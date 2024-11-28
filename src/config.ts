@@ -16,12 +16,12 @@ export const siteConfig: SiteConfig = {
   },
   banner: {
     enable: true,
-    src: 'assets/images/1685116f28e6f9d8acba82938c3a827c.jpg',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    src: 'assets/images/GWPQoRmbcAEMrhR.jpg',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
     position: 'center',      // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
     credit: {
-      enable: false,         // Display the credit text of the banner image
-      text: '',              // Credit text to be displayed
-      url: ''                // (Optional) URL link to the original artwork or artist's page
+      enable: true,         // Display the credit text of the banner image
+      text: 'yuzuha_wasa/未来の扉を開けて',              // Credit text to be displayed
+      url: 'https://x.com/yuzuha_wasa/status/1829535370855559409'                // (Optional) URL link to the original artwork or artist's page
     }
   },
   toc: {
