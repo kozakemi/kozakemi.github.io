@@ -2,8 +2,9 @@
 title: HC32F4A0 SPI及其DMA
 published: 2024-11-05 14:33:50
 tags: [HDSC,HC32,F4A0,SPI,DMA]
+description: 本文详细介绍了HC32F4A0微控制器的SPI及其DMA功能
 category: 嵌入式
-draft: true
+draft: false
 ---
 
 ## 支持特性
