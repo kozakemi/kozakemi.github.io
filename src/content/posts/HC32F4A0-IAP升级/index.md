@@ -1,7 +1,7 @@
 ---
 title: HC32F4A0 IAP升级
 published: 2024-11-05 14:33:50
-tags: [HDSC,HC32,F4A0,SPI,DMA]
+tags: [HDSC,HC32,F4A0,IAP]
 description: 本文详细介绍了HC32F4A0微控制器IAP的两种实现方式
 category: 嵌入式
 draft: false
