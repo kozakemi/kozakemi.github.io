@@ -1,0 +1,45 @@
+name: Build and Deploy Pages
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    container: node:22.0.0
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup PNPM
+        run: |
+          npm install -g pnpm
+          pnpm install
+          pnpm add sharp
+          pnpm exec playwright install
+          pnpm exec playwright install-deps
+          
+      - name: Build
+        run: |
+          pnpm build
+          rm -rf public/*
+          mkdir -p public
+          mv dist/* public/
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+          
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
