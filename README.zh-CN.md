@@ -53,6 +53,7 @@ lang: jp      # 仅当文章语言与 `config.ts` 中的网站语言不同时需
 | `pnpm install` 并 `pnpm add sharp` | 安装依赖                              |
 | `pnpm dev`                        | 在 `localhost:4321` 启动本地开发服务器      |
 | `pnpm build`                      | 构建网站至 `./dist/`                   |
+| `pnpm run build:check`            | 安装依赖并构建（提交前建议执行，避免 CI 构建失败）     |
 | `pnpm preview`                    | 本地预览已构建的网站                        |
 | `pnpm new-post <filename>`        | 创建新文章                             |
 | `pnpm astro ...`                  | 执行 `astro add`, `astro check` 等指令 |
